@@ -1,0 +1,124 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-buttons end>
+            <button ion-button menuToggle left>
+          <ion-icon class="menu_icon" name="menu"></ion-icon>
+        </button>
+        </ion-buttons>
+        <ion-title>Notificaciones</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar color="nav">
+
+
+        <ion-segment [(ngModel)]="mymodel" color="secondary">
+
+            <ion-segment-button value="segment1">
+                <ion-icon ios="ios-football" md="md-football"></ion-icon>
+            </ion-segment-button>
+
+            <ion-segment-button value="segment2">
+                <ion-icon ios="ios-people" md="md-people"></ion-icon>
+            </ion-segment-button>
+
+            <ion-segment-button value="segment3">
+                <ion-icon ios="ios-person" md="md-person"></ion-icon>
+            </ion-segment-button>
+
+        </ion-segment>
+
+
+    </ion-toolbar>
+
+</ion-header>
+
+
+
+
+
+<ion-content class="content" padding>
+
+    <div [ngSwitch]="mymodel">
+
+        <ion-list no-lines class="content" *ngSwitchCase="'segment1'">
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <label class="titulo">Notificaciones para toda la academia</label>
+            </ion-item>
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Mensaje(*)</ion-label>
+                <ion-input class="letras" type="text" [(ngModel)]="mensaje"></ion-input>
+            </ion-item>
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Título(*)</ion-label>
+                <ion-input class="letras" type="text" [(ngModel)]="titulo"></ion-input>
+            </ion-item>
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Subtítulo(*)</ion-label>
+                <ion-input class="letras" type="text" [(ngModel)]="subtitulo"></ion-input>
+            </ion-item>
+            <button ion-button full (click)="notificaciones_todos()" color="secondary">Enviar</button>
+        </ion-list>
+
+
+        <ion-list no-lines *ngSwitchCase="'segment2'">
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <label class="titulo">Notificaciones para una sucursal</label>
+            </ion-item>
+
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Mensaje(*)</ion-label>
+                <ion-input class="letras" type="text" [(ngModel)]="mensaje"></ion-input>
+            </ion-item>
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Título(*)</ion-label>
+                <ion-input class="letras" type="text" [(ngModel)]="titulo"></ion-input>
+            </ion-item>
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Subtítulo(*)</ion-label>
+                <ion-input class="letras" type="text" [(ngModel)]="subtitulo"></ion-input>
+            </ion-item>
+
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Sucursal</ion-label>
+                <ion-select class="letras" [(ngModel)]="sucursal_idsucursal">
+                    <ion-option *ngFor="let item of p_sucursales.sucursales" [value]="item.idsucursal">{{item.nombre_sucursal}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <button ion-button full (click)="notificaciones_sucursal()" color="secondary">Enviar</button>
+
+        </ion-list>
+
+
+        <ion-list no-lines *ngSwitchCase="'segment3'">
+
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <label class="titulo">Notificaciones para un curso</label>
+            </ion-item>
+
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Mensaje(*)</ion-label>
+                <ion-input class="letras" type="text" [(ngModel)]="mensaje"></ion-input>
+            </ion-item>
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Título(*)</ion-label>
+                <ion-input class="letras" type="text" [(ngModel)]="titulo"></ion-input>
+            </ion-item>
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Subtítulo(*)</ion-label>
+                <ion-input class="letras" type="text" [(ngModel)]="subtitulo"></ion-input>
+            </ion-item>
+
+            <ion-item class="content" style="border-bottom: solid #76ff03;">
+                <ion-label class="titulo" stacked>Curso</ion-label>
+                <ion-select class="letras" [(ngModel)]="sucursal_categorias_idsucursal_categorias">
+                    <ion-option *ngFor="let item of p_entrenadores.categoriashorariosucursales" [value]="item.idsucursal_categorias">{{item.nombre_sucursal}} {{item.nombre_categoria}} {{item.nombre}} {{item.hora_inicio}}/{{item.hora_fin}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <button ion-button full (click)="notificaciones_curso()" color="secondary">Enviar</button>
+        </ion-list>
+    </div>
+
+</ion-content>

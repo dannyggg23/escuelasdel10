@@ -1,0 +1,44 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>ACTUALIZAR DATOS</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list no-lines>
+
+        <ion-item style=" border-bottom: solid #76ff03;">
+            <ion-label stacked>Sucursal</ion-label>
+            <ion-select [(ngModel)]="sucursal_idsucursal">
+                <ion-option *ngFor="let item of p_sucursales.sucursales" [value]="item.idsucursal">{{item.nombre_sucursal}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item style=" border-bottom: solid #76ff03;">
+            <ion-label stacked>Categoria</ion-label>
+            <ion-select [(ngModel)]="categoria_idcategoria">
+                <ion-option *ngFor="let item of p_categorias.categorias_solas" [value]="item.idcategoria">{{item.nombre_categoria}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item style=" border-bottom: solid #76ff03;">
+            <ion-label stacked>Horario</ion-label>
+            <ion-select [(ngModel)]="horario_idhorario">
+                <ion-option *ngFor="let item of p_categorias.horarios" [value]="item.idhorario">{{item.nombre}}-{{item.hora_inicio}}/{{item.hora_fin}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+    </ion-list>
+
+    <button ion-button full (click)="actualizar()" color="danger">Guardar</button>
+
+    <button ion-button full (click)="goBack()" color="danger">Atras</button>
+
+
+
+
+</ion-content>

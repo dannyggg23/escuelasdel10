@@ -1,0 +1,31 @@
+<ion-header #head>
+
+    <ion-navbar color="nav">
+        <ion-title>BUSQUEDA DE REPRESENTANTE</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding hide-header [header]="head" auto-hide>
+
+    <ion-searchbar placeholder="Búsqueda por Nombre o Cédula" (ionInput)="getItems($event)"></ion-searchbar>
+
+    <div class="content" *ngIf="p_mensualidades.representantes.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines>
+        <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let representante of p_mensualidades.representantes" [navPush]="pushPage" [navParams]="{item:item,representante:representante}">
+            <h2>{{ representante.cedula_representante }}</h2><strong>{{representante.nombre_representante}}</strong>
+        </ion-item>
+    </ion-list>
+
+    <ion-fab bottom right #fab>
+        <button (click)="crear_representante()" ion-fab color="secondary"><ion-icon ios="ios-contacts" md="md-contacts"></ion-icon></button>
+    </ion-fab>
+
+</ion-content>

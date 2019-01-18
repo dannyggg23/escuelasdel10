@@ -1,0 +1,32 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>LISTA DE NOTICIAS</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background: #00061e;">
+
+    <div *ngIf="p_informacion.noticias.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-card *ngFor="let item of p_informacion.noticias">
+        <img [src]="urlimagen+item.imagen" />
+        <ion-card-content>
+            <ion-card-title>
+                {{item.titulo}}
+            </ion-card-title>
+            <p>{{item.fecha}}</p>
+            <p>
+                {{item.descripcion}}
+            </p>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>ASISTENCIA</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list no-lines>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Fecha de Asistencia(*)</ion-label>
+            <ion-datetime style=" color: #d2e4b5;" displayFormat="MM/DD/YYYY" [(ngModel)]="fecha_asistencia"></ion-datetime>
+        </ion-item>
+    </ion-list>
+
+    <div class="content" *ngIf="p_entrenadorestab.alumnosCurso.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines>
+        <ion-item style="border-bottom: solid #76ff03;" *ngFor="let item of p_entrenadorestab.alumnosCurso">
+            <ion-thumbnail item-start>
+                <img style="border-radius:50%;" [src]="urlimagen+item.imagen_alumno">
+            </ion-thumbnail>
+            <h2>{{item.nombre_alumno}}</h2>
+            <p>Posicioón :
+                <Strong>{{item.posicion_alumno}}</Strong>
+            </p>
+            <p>Acceso :
+                <Strong>{{item.fecha_acceso}}</Strong>
+            </p>
+
+            <button ion-button clear icon-only color="secondary" (click)="asiste(item.idficha_alumno)">
+                <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>
+            </button>
+
+            <button ion-button clear icon-only color="rojo" (click)="falta(item.idficha_alumno)">
+                <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+            </button>
+
+        </ion-item>
+    </ion-list>
+
+
+</ion-content>

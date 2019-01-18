@@ -1,0 +1,31 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>ASIGNAR ENTRENADOR A CATEGORIA</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list no-lines>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Entrenador</ion-label>
+            <ion-select [(ngModel)]="entrenador_identrenador">
+                <ion-option *ngFor="let item of p_entrenadores.entrenadores" [value]="item.identrenador">{{item.nombre_entrenador}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Categoría</ion-label>
+            <ion-select [(ngModel)]="idsucursal_categorias">
+                <ion-option *ngFor="let item of p_entrenadores.categoriasdisponibles" [value]="item.idsucursal_categorias">{{item.nombre_sucursal}}/{{item.nombre_categoria}}/{{item.nombre}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+    </ion-list>
+
+    <button ion-button full (click)="insertar_datos()" color="danger">Guardar</button>
+    <button ion-button full (click)="goBack()" color="danger">Atras</button>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>ASISTENCIA</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div class="content" *ngIf="p_representantestab.alumnosRepresentante.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines>
+
+        <ion-item style="border-bottom: solid #76ff03;" *ngFor="let item of p_representantestab.alumnosRepresentante" [navPush]="pushpage" [navParams]="{item:item}">
+            <ion-thumbnail item-start>
+                <img style="border-radius:50%;" [src]="urlimagen+item.imagen_alumno">
+            </ion-thumbnail>
+            <h3>{{item.nombre_alumno}}</h3>
+            <h3>{{item.nombre_sucursal}}</h3>
+            <p>{{item.nombre_categoria}}</p>
+            <p>{{item.nombre}} - <strong> {{item.hora_inicio}} / {{item.hora_fin}} </strong></p>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

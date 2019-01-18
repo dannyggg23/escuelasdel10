@@ -1,0 +1,88 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>INSCRIPCIÓN</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-list no-lines>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Cédula(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="cedula_alumno"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Nombre(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="nombre_alumno"></ion-input>
+        </ion-item>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Género(*)</ion-label>
+            <ion-select [(ngModel)]="genero_alumno">
+                <ion-option value="Masculino">Masculino</ion-option>
+                <ion-option value="Femenino">Femenino</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <!-- <ion-item>
+            <ion-label stacked>Representante(*)</ion-label>
+            <ion-select [(ngModel)]="representante_idrepresentante">
+                <ion-option *ngFor="let item of p_alumnos.representantes" [value]="item.idrepresentante">{{item.nombre_representante}}</ion-option>
+            </ion-select>
+        </ion-item> -->
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Tipo de Sangre(*)</ion-label>
+            <ion-select [(ngModel)]="tipo_sangre_alumno">
+                <ion-option value="O negativo">O negativo</ion-option>
+                <ion-option value="O positivo">O positivo</ion-option>
+                <ion-option value="A negativo">A negativo</ion-option>
+                <ion-option value="A positivo">A positivo</ion-option>
+                <ion-option value="B negativo">B negativo</ion-option>
+                <ion-option value="B positivo">B positivo</ion-option>
+                <ion-option value="AB negativo">AB negativo</ion-option>
+                <ion-option value="AB positivo">AB positivo</ion-option>
+            </ion-select>
+        </ion-item>
+
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Escuela(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="escuela_alumno"></ion-input>
+        </ion-item>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Fecha de Nacimiento(*)</ion-label>
+            <ion-datetime style="color: #d2e4b5;" displayFormat="MM/DD/YYYY" [(ngModel)]="fecha_nacimiento"></ion-datetime>
+        </ion-item>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Pocicion(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="posicion_alumno"></ion-input>
+        </ion-item>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Peso(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="peso_alumno"></ion-input>
+        </ion-item>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Talla(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="talla_alumno"></ion-input>
+        </ion-item>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Información</ion-label>
+            <ion-input type="text" [(ngModel)]="informacion_alumno"></ion-input>
+        </ion-item>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Descuento(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="descuento_ficha_alumno"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button full (click)="insertar_datos()" color="secondary">Guardar</button>
+
+
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>NUEVO HORARIO</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+    <ion-list no-lines>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Horario</ion-label>
+            <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+        </ion-item>
+
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Inicio</ion-label>
+            <ion-datetime style="color: #d2e4b5;" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="hora_inicio"></ion-datetime>
+        </ion-item>
+
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Fin</ion-label>
+            <ion-datetime style="color: #d2e4b5;" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="hora_fin"></ion-datetime>
+        </ion-item>
+
+    </ion-list>
+
+    <button ion-button full (click)="insertar_horario()" color="danger">Guardar</button>
+    <button ion-button full (click)="goBack()" color="danger">Atras</button>
+
+
+
+</ion-content>

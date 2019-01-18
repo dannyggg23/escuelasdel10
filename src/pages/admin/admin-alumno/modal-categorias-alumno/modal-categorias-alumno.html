@@ -1,0 +1,27 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>SELECCIONE UNA CATEGORÍA</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div class="content" *ngIf="p_alumnos.categorias_horario_sucursal.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines>
+        <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let item of p_alumnos.categorias_horario_sucursal" [navPush]="pushPage" [navParams]="{item:item}">
+            <h2>{{item.nombre_categoria}}</h2>
+            <h2>{{item.nombre}}</h2>
+            <p>{{item.hora_inicio}}/{{item.hora_fin}}</p>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

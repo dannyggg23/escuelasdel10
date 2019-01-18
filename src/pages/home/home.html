@@ -1,0 +1,66 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+    <div class="flb">
+        <div class="Aligner-item Aligner-item--top"></div>
+        <img src="../../assets/imgs/logo.svg">
+        <div class="Aligner-item Aligner-item--bottom"></div>
+    </div>
+</div>
+
+<ion-content class="content" padding>
+
+    <!-- <h3 style=" background: #8ac728;padding: 5%;text-align: center">ACADEMIA FORMATIVA DE FUTBOL</h3> -->
+    <br>
+    <br>
+    <br>
+    <nav style="height: 60%; width: 100%;">
+
+        <ion-slides autoplay="5000" loop="true" speed="3000">
+
+            <ion-slide>
+                <img src="../../assets/imgs/slider/slider1.jpg" imageViewer>
+            </ion-slide>
+
+            <ion-slide *ngFor="let item of p_informacion.imagenes_app">
+                <img [src]="URL_IMG_SLIDER+item.imagen" imageViewer>
+            </ion-slide>
+
+
+        </ion-slides>
+    </nav>
+    <div class="socialshare">
+
+        <ion-buttons>
+            <button ion-button icon-only color="dark" (click)="openFacebook('645663165590893')">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </button>
+            <button ion-button icon-only color="dark" (click)="openInstagram('la.escuela.del.10')">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                    </button>
+            <button ion-button icon-only color="dark" (click)="openTwitter('')">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                    </button>
+
+            <button ion-button icon-only color="dark" (click)="openwhatsapp('593995001812')">
+                            <ion-icon name="logo-whatsapp"></ion-icon>
+            </button>
+        </ion-buttons>
+    </div>
+
+    <!-- <div class="logo">
+        <img src="../../assets/imgs/imgintro2.png" imageViewer>
+    </div> -->
+
+    <div>
+        <button class="boton" ion-button block icon-left (click)="mostrar_modal()">
+                <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
+                  INGRESAR
+              </button>
+        <button class="boton" ion-button block icon-left (click)="mostrar_modal_informacion()">
+            <ion-icon ios="ios-information-circle" md="md-information-circle">   </ion-icon>
+              INFORMACION
+          </button>
+    </div>
+
+
+
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header #head>
+
+    <ion-navbar color="nav">
+        <ion-buttons end>
+            <button ion-button menuToggle left>
+                  <ion-icon class="menu_icon" name="menu"></ion-icon>
+                </button>
+        </ion-buttons>
+        <ion-title>Lista de entrenadores</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content hide-header [header]="head" auto-hide>
+
+    <div class="content" *ngIf="p_entrenadores.fichaentrenadores.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines>
+        <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let item of p_entrenadores.fichaentrenadores">
+            <ion-thumbnail item-start>
+                <img [src]="urlimagen+item.imagen_entrenador">
+            </ion-thumbnail>
+            <h2>{{item.nombre_entrenador}}</h2>
+            <h2>{{item.nombre_sucursal}}</h2>
+            <p>{{item.nombre_categoria}}</p>
+            <p>{{item.nombre}}-<strong>{{item.hora_inicio}}/{{item.hora_fin}}></strong></p>
+            <p *ngIf="item.estado=='1'" style="color: darkgreen">ACTIVO</p>
+            <p *ngIf="item.estado=='0'" style="color:crimson">INACTIVO</p>
+            <button *ngIf="item.estado=='1'" ion-button clear item-end color="danger" (click)="desactivar_ficha(item.idficha_entrenador,item.idsucursal_categorias)">X</button>
+        </ion-item>
+    </ion-list>
+
+
+
+    <ion-fab bottom right #fab>
+        <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list side="top">
+            <button (click)="nuevo_entrenador()" ion-fab><ion-icon ios="ios-create" md="md-create"></ion-icon></button>
+            <button ion-fab (click)="crear_fichaentrenador()"><ion-icon ios="ios-contact" md="md-contact"></ion-icon></button>
+        </ion-fab-list>
+    </ion-fab>
+
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>LISTA DE SUCURSALES</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="content">
+
+    <div *ngIf="p_sucursales.sucursales.length==0" style="padding: 0%;border-style: none;background: #00061e">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <!-- <ion-list>
+        <ion-card *ngFor="let item of p_sucursales.sucursales" [navPush]="pushPage" [navParams]="{item:item}">
+            <img [src]="urlimagen+item.imagen" />
+            <ion-item>
+                <ion-icon name="football" item-start large></ion-icon>
+                <h2>{{item.nombre_sucursal}}</h2>
+                <p>{{item.ciudad}}</p>
+                <button ion-button icon-start clear item-end>
+                    <ion-icon name="navigate"></ion-icon>
+                    ver
+                </button>
+            </ion-item>
+        </ion-card>
+    </ion-list> -->
+
+    <ion-list no-lines>
+        <ion-item style="border-bottom: solid #76ff03" *ngFor="let item of p_sucursales.sucursales" [navPush]="pushPage" [navParams]="{item:item}">
+            <ion-thumbnail item-start>
+                <img [src]="urlimagen+item.imagen">
+            </ion-thumbnail>
+            <h2>{{item.nombre_sucursal}}</h2>
+            <h3>{{item.direrccion_ducursal}}</h3>
+            <p>{{item.ciudad}}</p>
+            <p>{{item.telefono_sucursal}}</p>
+            <button ion-button icon-start clear item-end>
+            <ion-icon name="navigate"></ion-icon>
+            ver
+          </button>
+        </ion-item>
+    </ion-list>
+</ion-content>

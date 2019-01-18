@@ -1,0 +1,182 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>ACTUALIZAR DATOS</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar color="nav">
+
+
+        <ion-segment [(ngModel)]="mymodel" color="secondary">
+
+            <!-- <ion-segment-button value="segment1">
+                Datos
+            </ion-segment-button> -->
+
+            <ion-segment-button value="segment2">
+                Representante
+            </ion-segment-button>
+
+            <ion-segment-button value="segment3">
+                Alumnos
+            </ion-segment-button>
+
+        </ion-segment>
+
+
+    </ion-toolbar>
+
+</ion-header>
+
+
+
+
+<ion-content padding>
+
+    <div [ngSwitch]="mymodel">
+
+        <!-- <ion-list *ngSwitchCase="'segment1'">
+
+            <ion-item-group no-lines>
+               
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{nombre_representante}}</ion-item>
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{cedula_representante}}</ion-item>
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{nombre_conyugue_representante}}</ion-item>
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{cedula_conyugue_representante}}</ion-item>
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{email_representante}}</ion-item>
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{token}}</ion-item>
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{direccion_representante}}</ion-item>
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{celular_representante}}</ion-item>
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{parentesco_respresentante}}</ion-item>
+                <ion-item-divider color="light"></ion-item-divider>
+                <ion-item>{{genero_representante}}</ion-item>
+                <ion-item-divider color="light">
+                </ion-item-divider>
+            </ion-item-group>
+
+
+        </ion-list> -->
+
+        <ion-list *ngSwitchCase="'segment2'">
+
+            <ion-list no-lines>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Cédula(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="cedula_representante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Nombre(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="nombre_representante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Cédula Conyugue(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="cedula_conyugue_representante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Nombre Conyugue(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="nombre_conyugue_representante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Email(*)</ion-label>
+                    <ion-input type="Email" [(ngModel)]="email_representante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Dirección(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="direccion_representante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Teléfono</ion-label>
+                    <ion-input type="text" [(ngModel)]="telefono_representante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Celular(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="celular_representante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Género(*)</ion-label>
+                    <ion-select [(ngModel)]="genero_representante">
+                        <ion-option value="Masculino">Masculino</ion-option>
+                        <ion-option value="Femenino">Femenino</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Fecha de Nacimiento(*)</ion-label>
+                    <ion-datetime style=" color: #d2e4b5;" displayFormat="MM/DD/YYYY" [(ngModel)]="fecha_nacimiento_representante"></ion-datetime>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Parentezco(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="parentesco_respresentante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Lugar de trabajo(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="lugar_trabajo_representante"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Ciudad(*)</ion-label>
+                    <ion-select [(ngModel)]="ciudad_representante">
+                        <ion-option *ngFor="let item of p_sucursales.ciudades" [value]="item.idCiudad">{{item.ciudad}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Barrio(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="barrio_representante"></ion-input>
+                </ion-item>
+
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Usuario(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="usuario"></ion-input>
+                </ion-item>
+
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Clave(*)</ion-label>
+                    <ion-input type="password" [(ngModel)]="clave"></ion-input>
+                </ion-item>
+            </ion-list>
+
+            <button ion-button full (click)="insertar_datos()" color="secondary">Guardar</button>
+
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'segment3'">
+
+            <div class="content" *ngIf="p_representantestab.alumnosRepresentante.length==0" style="padding: 0%;border-style: none">
+                <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+                <ion-item no-lines style="text-align: center;background: #00061e">
+                    <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+                </ion-item>
+            </div>
+
+            <ion-item style="border-bottom: solid #76ff03;" *ngFor="let item of p_representantestab.alumnosRepresentante" [navPush]="pushpage" [navParams]="{item:item}">
+                <ion-thumbnail item-start>
+                    <img style="border-radius:50%;" [src]="urlimagen+item.imagen_alumno">
+                </ion-thumbnail>
+                <h3>{{item.nombre_alumno}}</h3>
+                <h3>{{item.nombre_sucursal}}</h3>
+                <p>{{item.nombre_categoria}}</p>
+                <p>{{item.nombre}} - <strong> {{item.hora_inicio}} / {{item.hora_fin}} </strong></p>
+                <p><strong>Acceso: </strong>{{item.fecha_acceso}}</p>
+            </ion-item>
+
+        </ion-list>
+
+    </div>
+
+
+
+
+
+    <!-- <button ion-button block color="primary" (click)="actualizar()">Actualizar Datos</button>
+    <button ion-button block color="secondary" [navPush]="pushPage">Actualizar Alumno</button>
+    <button ion-button block color="danger" (click)="cerra_sesion()">Cerra Sesión</button> -->
+
+</ion-content>

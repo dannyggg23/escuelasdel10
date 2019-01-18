@@ -1,0 +1,30 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>LISTA DE FACTURAS</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div class="content" *ngIf="p_consultasadmin.pagos_por_representante.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines>
+        <ion-item style="border-bottom: solid #76ff03;" *ngFor="let item of p_consultasadmin.pagos_por_representante" [navPush]="pushPage" [navParams]="{item:item}">
+            <ion-thumbnail item-start>
+                <img src="../../../../assets/imgs/factura.png">
+            </ion-thumbnail>
+            <h2><strong>Fecha: </strong>{{item.fecha}}</h2>
+            <h3><strong>Total: </strong>{{item.total}}</h3>
+            <p><strong>Número de factura: </strong>{{item.serie_comprobante}} - {{item.num_comprobante}}</p>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

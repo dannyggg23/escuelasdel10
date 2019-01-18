@@ -1,0 +1,18 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>SELECCIONE UN SERVICIO</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list no-lines>
+        <button style="border-bottom: solid #76ff03;" ion-item *ngFor="let servicio of p_alumnos.servicios" [navPush]="pushPage" [navParams]="{item:item,servicio:servicio}">
+          {{ servicio.nombre_productos_servicios }}
+        </button>
+    </ion-list>
+
+</ion-content>

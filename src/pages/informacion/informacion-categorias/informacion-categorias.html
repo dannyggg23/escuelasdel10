@@ -1,0 +1,26 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>LISTA DE CATEGORIAS</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background: #00061e;" padding>
+
+    <div *ngIf="p_sucursale.categorias.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines style="background: #00061e;">
+        <ion-item style="border-bottom: solid #76ff03;background:#00061e; margin: 0% " *ngFor="let item of p_sucursale.categorias">
+            <h2 style="color: #ffffff">{{item.nombre_categoria}}</h2>
+            <ion-item style="background:#00061e;color: #d2e4b5;" text-wrap>{{item.descripcion_categoria}}</ion-item>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>DETALLE DE FACTURA</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <!-- <div *ngIf="p_consustasadmin.detalle_de_pago.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../../assets/imgs/busqueda.png">
+        <ion-item style="text-align: center">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div> -->
+
+    <ion-list>
+
+        <ion-item>
+
+            <ion-label stacked><strong>N°. </strong> {{num_comprobante}}</ion-label>
+
+            <!-- <ion-label stacked><strong>Alumno: </strong></ion-label> -->
+
+            <ion-label stacked><strong>Fecha: </strong> {{fecha}}</ion-label>
+
+            <ion-label stacked><strong>Tipo Documento: </strong> {{tipo_documento}}</ion-label>
+
+            <ion-label stacked><strong>Serie: </strong>{{serie_comprobante}}</ion-label>
+
+
+            <ion-label stacked class="cabecera"><b>Cantidad</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Detalle</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<b>Precio</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;<b>Total</b></ion-label>
+
+            <ion-label *ngFor="let item of p_consustasadmin.detalle_de_pago" stacked>&nbsp;&nbsp;&nbsp;&nbsp;{{item.numero_meses_pago}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{item.nombre_productos_servicios}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{item.precio_pago}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                &nbsp; &nbsp;{{item.numero_meses_pago*item.precio_pago}}</ion-label>
+            <ion-label stacked text-right>
+                <strong>Sub Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{subtotal}}</strong>
+            </ion-label>
+
+            <ion-label stacked text-right>
+                <strong>Iva 12 %&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{subtotal*0.12}}</strong>
+            </ion-label>
+
+            <!-- <ion-label stacked text-right>
+                <strong>Descuento %&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$</strong>
+            </ion-label> -->
+
+            <ion-label stacked text-right>
+                <strong>Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ {{total}}</strong>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

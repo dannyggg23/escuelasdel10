@@ -1,0 +1,94 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-buttons end>
+            <button ion-button menuToggle left>
+        <ion-icon class="menu_icon" name="menu"></ion-icon>
+      </button>
+        </ion-buttons>
+        <ion-title>Consultas</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar color="nav">
+
+
+        <ion-segment [(ngModel)]="mymodel" color="secondary">
+
+            <ion-segment-button value="segment1">
+                Pagos
+            </ion-segment-button>
+
+            <ion-segment-button value="segment2">
+                Deudores
+            </ion-segment-button>
+
+            <!-- <ion-segment-button value="segment3">
+                
+            </ion-segment-button> -->
+
+        </ion-segment>
+
+
+    </ion-toolbar>
+
+</ion-header>
+
+
+
+
+
+<ion-content padding>
+
+    <div class="content" [ngSwitch]="mymodel">
+
+        <ion-list *ngSwitchCase="'segment1'">
+            <ion-searchbar placeholder="Busqueda por Nombre o Cédula" (ionInput)="getItems($event)"></ion-searchbar>
+
+            <div *ngIf="p_mensualidades.representantes.length==0" style="padding: 0%;border-style: none">
+                <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+                <ion-item no-lines style="text-align: center;background: #00061e">
+                    <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+                </ion-item>
+            </div>
+
+            <ion-list no-lines>
+                <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let item of p_mensualidades.representantes" [navPush]="pushPage" [navParams]="{item:item}">
+                    <h2>{{ item.cedula_representante }}</h2><strong>{{item.nombre_representante}}</strong>
+                </ion-item>
+            </ion-list>
+
+
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'segment2'">
+
+            <div *ngIf="p_sucursales.sucursales.length==0" style="padding: 0%;border-style: none">
+                <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+                <ion-item no-lines style="text-align: center;background: #00061e">
+                    <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+                </ion-item>
+            </div>
+
+            <ion-list no-lines>
+
+
+                <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let item of p_sucursales.sucursales" [navPush]="pushPageCategorias" [navParams]="{item:item}">
+                    <ion-thumbnail item-start>
+                        <img [src]="url_sucursales+item.imagen">
+                    </ion-thumbnail>
+                    <h2>{{item.nombre_sucursal}}</h2>
+                    <p>{{item.ciudad}}</p>
+                </ion-item>
+            </ion-list>
+
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'segment3'">
+
+
+        </ion-list>
+    </div>
+
+</ion-content>

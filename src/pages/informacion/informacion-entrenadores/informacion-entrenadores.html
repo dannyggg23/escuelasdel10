@@ -1,0 +1,52 @@
+<!--
+  Generated template for the InformacionEntrenadoresPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>Entrenadores</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="content">
+
+    <div *ngIf="p_informacion.entrenadores.length==0" style="padding: 0%;border-style: none;background: #00061e">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <!-- <ion-list>
+
+        <ion-card *ngFor="let item of p_informacion.entrenadores">
+            <img [src]="urlimagen+item.imagen_entrenador" />
+            <ion-item>
+                <ion-icon name="football" item-start large></ion-icon>
+                <h2>{{item.nombre_entrenador}}</h2>
+                <p>{{item.titulo_entrenador}}</p>
+                <p>{{item.descripcion}}</p>
+
+            </ion-item>
+        </ion-card>
+
+    </ion-list> -->
+
+    <ion-list no-lines>
+        <ion-item style="border-bottom: solid #76ff03" *ngFor="let item of p_informacion.entrenadores">
+            <ion-thumbnail item-start>
+                <img [src]="urlimagen+item.imagen_entrenador">
+            </ion-thumbnail>
+            <h2>{{item.nombre_entrenador}}</h2>
+            <h3>{{item.titulo_entrenador}}</h3>
+            <p>{{item.celular_entrenador}}</p>
+            <p>{{item.descripcion}}</p>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

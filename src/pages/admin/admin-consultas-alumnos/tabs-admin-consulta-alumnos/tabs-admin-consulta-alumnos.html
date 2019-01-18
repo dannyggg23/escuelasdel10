@@ -1,0 +1,126 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>Consultas</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar color="nav">
+
+
+        <ion-segment [(ngModel)]="mymodel" color="secondary">
+
+            <ion-segment-button value="segment1">
+                Mensualidades
+            </ion-segment-button>
+
+            <ion-segment-button value="segment2">
+                Datos
+            </ion-segment-button>
+
+            <ion-segment-button value="segment3">
+              Asistencia
+            </ion-segment-button>
+
+        </ion-segment>
+
+
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <div class="content" [ngSwitch]="mymodel">
+
+        <ion-list *ngSwitchCase="'segment1'">
+            
+          <!-- Mensualidades-->
+
+          <div class="content" *ngIf="p_consultasadmin.pagos_por_alumno.length==0" style="padding: 0%;border-style: none">
+              <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../../assets/imgs/busqueda.png">
+              <ion-item no-lines style="text-align: center;background: #00061e">
+                  <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+              </ion-item>
+          </div>
+      
+      
+          <ion-list no-lines>
+              <ion-item style="border-bottom: solid #76ff03;" *ngFor="let item of p_consultasadmin.pagos_por_alumno">
+                  <ion-thumbnail item-start>
+                      <img src="../../../../assets/imgs/factura.png">
+                  </ion-thumbnail>
+                  <h2><strong>Fecha: </strong>{{item.fecha}}</h2>
+                  <h3><strong>Total: </strong>{{item.total}}</h3>
+                  <p><strong>Número de factura: </strong>{{item.serie_comprobante}} - {{item.num_comprobante}}</p>
+              </ion-item>
+          </ion-list>
+
+
+          <!-- FIN --Mensualidades-->
+
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'segment2'">
+
+            <div *ngIf="p_consultasadmin.datos_por_alumno.length==0" style="padding: 0%;border-style: none">
+                <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+                <ion-item no-lines style="text-align: center;background: #00061e">
+                    <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+                </ion-item>
+            </div>
+        
+           
+            <ion-list *ngFor="let item of p_consultasadmin.datos_por_alumno">
+                <ion-item >
+                  <ion-thumbnail item-end>
+                    <img [src]="urlimagen+item.imagen_alumno">
+                  </ion-thumbnail>
+                  <h2>{{item.nombre_alumno}}</h2>
+                  <h2> Genero: <strong> {{item.genero_alumno}}</strong></h2>
+                  <h2><strong> {{item.fecha_nacimiento}}</strong></h2>
+                  <h2> Posición: <strong> {{item.posicion_alumno}}</strong></h2>
+                  <h2> Acceso: <strong> {{item.fecha_acceso}}</strong></h2>
+                </ion-item>
+
+                <ion-item>
+                    <h2> Representante: <strong> {{item.nombre_representante}}</strong></h2>
+                    <h2> Cédula: <strong> {{item.cedula_representante}}</strong></h2>
+                    <h2> Entrenador: <strong> {{item.nombre_entrenador}}</strong></h2>
+                    <h2> Sucursal: <strong> {{item.nombre_sucursal}}</strong></h2>
+                    <h2> Categoría: <strong> {{item.nombre_categoria}}</strong></h2>
+                    <h2> Horario: <strong> {{item.nombre}}</strong></h2>
+                    <h2> Inicio: <strong> {{item.hora_inicio}}</strong></h2>
+                    <h2> Fin: <strong> {{item.hora_fin}}</strong></h2>
+                </ion-item>
+                
+              </ion-list>
+
+           
+        </ion-list>
+
+
+        <ion-list *ngSwitchCase="'segment3'">
+
+
+    <div class="content" *ngIf="p_consultasadmin.asistencia_por_alumno.length==0" style="padding: 0%;border-style: none">
+            <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+            <ion-item no-lines style="text-align: center;background: #00061e">
+                <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+            </ion-item>
+        </div>
+    
+    
+        <ion-list no-lines>
+            <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let item of p_consultasadmin.asistencia_por_alumno">
+                <h2>{{item.fecha_asistencia}}</h2>
+                <h2 *ngIf="item.asistencia_alumno=='1'" style="color: greenyellow">Asiste</h2>
+                <h2 *ngIf="item.asistencia_alumno=='0'" style="color: red">Falta</h2>
+            </ion-item>
+        </ion-list>
+
+
+        </ion-list>
+    </div>
+
+</ion-content>

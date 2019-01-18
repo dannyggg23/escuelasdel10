@@ -1,0 +1,91 @@
+<ion-content class="content" padding>
+
+    <!-- <h3 style=" background: #8ac728;padding: 5%;text-align: center">ACADEMIA FORMATIVA DE FUTBOL</h3> -->
+    <br>
+    <br>
+    <br>
+    <nav style="height: 60%; width: 100%;">
+
+        <ion-slides autoplay="5000" loop="true" speed="3000">
+
+            <ion-slide>
+                <img src="../../../assets/imgs/slider/slider1.jpg" imageViewer>
+            </ion-slide>
+
+            <ion-slide *ngFor="let item of p_informacion.imagenes_app">
+                <img [src]="URL_IMG_SLIDER+item.imagen" imageViewer>
+            </ion-slide>
+
+
+        </ion-slides>
+    </nav>
+    <div style="padding-bottom: 25%">
+        <button class="boton" ion-button block (click)="open_menu()">
+                   
+                          MENU
+            </button>
+    </div>
+
+    <div class="socialshare">
+
+        <ion-buttons>
+            <button ion-button icon-only color="dark" (click)="openFacebook('645663165590893')">
+                          <ion-icon name="logo-facebook"></ion-icon>
+                        </button>
+            <button ion-button icon-only color="dark" (click)="openInstagram('la.escuela.del.10')">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                        </button>
+            <button ion-button icon-only color="dark" (click)="openTwitter('')">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                        </button>
+
+            <button ion-button icon-only color="dark" (click)="openwhatsapp('593995001812')">
+                                <ion-icon name="logo-whatsapp"></ion-icon>
+                </button>
+        </ion-buttons>
+    </div>
+
+    <!-- <div class="logo">
+            <img src="../../assets/imgs/imgintro2.png" imageViewer>
+        </div> -->
+
+
+
+
+
+</ion-content>
+
+
+<!-- <ion-content class="contet">
+
+    <div class="div1">
+        <img class="img" src="../../assets/imgs/imgintro2.png">
+    </div>
+
+    <div class="div2">
+        <h1>ADMINISTRACIÓN</h1>
+    </div>
+
+    <div class="div3">
+
+        <div id="uno">
+            <img class="img" src="../../assets/imgs/pagos.png" [navPush]="pushPage" [navParams]="{item:'1'}">
+
+        </div>
+        <div id="dos">
+            <img class="img" src="../../assets/imgs/inscripciones.png" [navPush]="pushPage" [navParams]="{item:'2'}">
+
+        </div>
+        <br>
+        <div id="tres">
+            <img class="img" src="../../assets/imgs/comunicados.png" [navPush]="pushPage" [navParams]="{item:'3'}">
+
+        </div>
+        <div id="cuatro">
+            <img class="img" src="../../assets/imgs/resumen.png " [navPush]="pushPage" [navParams]="{item:'4'}">
+
+        </div>
+
+    </div>
+
+</ion-content> -->

@@ -1,0 +1,93 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>DEPOSITOS</ion-title>
+    </ion-navbar>
+
+    <ion-toolbar color="nav">
+
+
+        <ion-segment [(ngModel)]="mymodel" color="secondary">
+
+            <ion-segment-button value="segment1">
+                Historial
+            </ion-segment-button>
+
+            <ion-segment-button value="segment2">
+                Enviar
+            </ion-segment-button>
+
+
+        </ion-segment>
+
+
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div [ngSwitch]="mymodel">
+
+        <ion-list *ngSwitchCase="'segment1'">
+
+            <div class="content" *ngIf="p_representantestab.depositosRepresentante.length==0" style="padding: 0%;border-style: none">
+                <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+                <ion-item no-lines style="text-align: center;background: #00061e">
+                    <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+                </ion-item>
+            </div>
+
+            <ion-list no-lines>
+                <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let item of p_representantestab.depositosRepresentante">
+                    <ion-thumbnail item-start>
+                        <img [src]="imgdeposito+item.imagen">
+                    </ion-thumbnail>
+                    <h2><strong>Fecha: </strong>{{item.fecha}}</h2>
+                    <h2><strong>Alumno: </strong>{{item.nombre_alumno}}</h2>
+                    <h2 *ngIf="item.estado_aprobada=='1'" style="background: greenyellow">APROBADA</h2>
+                    <h2 *ngIf="item.estado_aprobada=='0'" style="background: red">EN PROCESO</h2>
+                </ion-item>
+            </ion-list>
+
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'segment2'">
+
+            <button ion-button full (click)="openGalery()" color="secondary">Galería</button>
+            <button ion-button full (click)="openCamera()" color="secondary">Camara</button>
+
+            <img [src]="base64Image">
+
+            <ion-list no-lines>
+
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Fecha(*)</ion-label>
+                    <ion-input type="date" [(ngModel)]="fecha"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Alumno</ion-label>
+                    <ion-select [(ngModel)]="ficha_alumno_idficha_alumno">
+                        <ion-option *ngFor="let item of p_representantestab.alumnosRepresentante" [value]="item.idficha_alumno">{{item.nombre_alumno}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Descripción(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="descripcion"></ion-input>
+                </ion-item>
+            </ion-list>
+            <button ion-button full (click)="uoloadImage()" color="secondary">Enviar</button>
+
+        </ion-list>
+
+
+
+    </div>
+
+
+
+
+
+
+</ion-content>

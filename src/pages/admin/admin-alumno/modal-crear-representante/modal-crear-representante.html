@@ -1,0 +1,74 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>NUEVO REPRESENTANTE</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-list no-lines>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Cédula(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="cedula_representante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Nombre(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="nombre_representante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Cédula Conyugue(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="cedula_conyugue_representante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Nombre Conyugue(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="nombre_conyugue_representante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Email(*)</ion-label>
+            <ion-input type="Email" [(ngModel)]="email_representante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Dirección(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="direccion_representante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Teléfono</ion-label>
+            <ion-input type="text" [(ngModel)]="telefono_representante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Celular(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="celular_representante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Género(*)</ion-label>
+            <ion-select [(ngModel)]="genero_representante">
+                <ion-option value="Masculino">Masculino</ion-option>
+                <ion-option value="Femenino">Femenino</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Fecha de Nacimiento(*)</ion-label>
+            <ion-datetime style=" color: #d2e4b5;" displayFormat="MM/DD/YYYY" [(ngModel)]="fecha_nacimiento_representante"></ion-datetime>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Parentezco(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="parentesco_respresentante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Lugar de trabajo(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="lugar_trabajo_representante"></ion-input>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Ciudad(*)</ion-label>
+            <ion-select [(ngModel)]="ciudad_representante">
+                <ion-option *ngFor="let item of p_sucursales.ciudades" [value]="item.idCiudad">{{item.ciudad}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item style="border-bottom: solid #76ff03;">
+            <ion-label stacked>Barrio(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="barrio_representante"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button full (click)="insertar_datos()" color="secondary">Guardar</button>
+</ion-content>

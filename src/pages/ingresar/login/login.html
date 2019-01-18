@@ -1,0 +1,47 @@
+<ion-content class="login-content" padding>
+
+
+    <div class="logo">
+        <img src="../../../assets/imgs/slider/slider1.jpg" style="width: 60%;height: 60%; display: block; margin:auto;" />
+    </div>
+
+
+    <div class="login-box">
+
+        <ion-row>
+            <ion-col>
+                <ion-list inset>
+
+                    <ion-item>
+                        <ion-label>Usuario:</ion-label>
+                        <ion-input type="text" name="email" [(ngModel)]="usuario" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Clave:</ion-label>
+                        <ion-input type="password" name="password" [(ngModel)]="pass" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Tipo</ion-label>
+                        <ion-select [(ngModel)]="tipo_usuario">
+                            <ion-option value="u">Administrador</ion-option>
+                            <ion-option value="e">Entrenador</ion-option>
+                            <ion-option value="r">Representante</ion-option>
+                        </ion-select>
+                    </ion-item>
+
+                </ion-list>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="signup-col">
+                <button ion-button class="submit-btn" block (click)="ingresar_al_sistema()">Ingresar</button>
+                <button ion-button class="register-btn" block (click)="cerrar_modal()">Salir</button>
+            </ion-col>
+        </ion-row>
+
+
+    </div>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header #head>
+
+    <ion-navbar color="nav">
+        <ion-buttons end>
+            <button ion-button menuToggle left>
+      <ion-icon class="menu_icon" name="menu"></ion-icon>
+    </button>
+        </ion-buttons>
+        <ion-title>LISTA DE SUCURSALES</ion-title>
+    </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content class="content" hide-header [header]="head" auto-hide>
+
+    <div class="content" *ngIf="p_sucursales.sucursales.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines class="content">
+
+        <ion-item class="content" style=" border-bottom: solid #76ff03;" *ngFor="let item of p_sucursales.sucursales" [navPush]="pushPage" [navParams]="{item:item}">
+            <ion-thumbnail item-start>
+                <img [src]="urlimagen+item.imagen">
+            </ion-thumbnail>
+            <h2 class="titulo">{{item.nombre_sucursal}}</h2>
+            <p class="titulo">{{item.ciudad}}</p>
+        </ion-item>
+
+
+    </ion-list>
+
+    <ion-fab bottom right #fab>
+        <button (click)="crear_sucursal()" color="secondary" ion-fab>
+         <ion-icon ios="ios-create" md="md-create"></ion-icon>
+     </button>
+    </ion-fab>
+
+</ion-content>

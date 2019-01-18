@@ -1,0 +1,38 @@
+page-admin-sucursales {
+    .content {
+        background: #00061e;
+    }
+    .bordes {
+        background: #00061e;
+        border-bottom: solid #76ff03;
+    }
+    .titulo {
+        color: #ffffff;
+    }
+    .letras {
+        color: #d2e4b5;
+    }
+    //<ion-item no-lines style="text-align: center;background: #00061e">
+    .card-background-page {
+        background: rgb(255, 255, 255);
+        ion-card {
+            position: relative;
+            text-align: center;
+        }
+        .card-title {
+            position: absolute;
+            top: 36%;
+            font-size: 2.0em;
+            width: 100%;
+            font-weight: bold;
+            color: #fff;
+        }
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: 52%;
+            width: 100%;
+            color: #fff;
+        }
+    }
+}

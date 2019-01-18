@@ -1,0 +1,42 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>CUENTA</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+    <ion-item-group>
+        <img style="border-radius:50%; width: 5cm;height: 5cm;display: block;margin: auto;" [src]="imagenUsuario">
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines>{{nombre_entrenador}}</ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines>{{cedula_entrenador}}</ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines>{{titulo_entrenador}}</ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines>{{genero_entrenador}}</ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines>{{email_entrenador}}</ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines>{{token}}</ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines>{{direccion_entrenador}}</ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines>{{celular_entrenador}}</ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines>{{telefono_entrenador}}</ion-item>
+        <ion-item-divider color="light"></ion-item-divider>
+        <ion-item no-lines text-wrap>{{descripcion}}</ion-item>
+        <ion-item-divider color="light">
+        </ion-item-divider>
+    </ion-item-group>
+
+    <button ion-button block color="secondary" (click)="actualizar()">Actualizar Datos</button>
+    <!-- <button ion-button block color="danger" (click)="cerra_sesion()">Cerra Sesión</button> -->
+
+</ion-content>

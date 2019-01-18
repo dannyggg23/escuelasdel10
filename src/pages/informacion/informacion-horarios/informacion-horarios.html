@@ -1,0 +1,30 @@
+<ion-header>
+
+    <ion-navbar color="nav">
+        <ion-title>LISTA DE CATEGORIAS</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background: #00061e;" padding>
+
+    <div *ngIf="p_infromacion.SucCatHora.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines style="background: #00061e;">
+        <ion-item style="border-bottom: solid #76ff03;background:#00061e; " *ngFor="let item of p_infromacion.SucCatHora">
+            <h2 style="color: #ffffff">{{item.nombre_sucursal}}</h2>
+            <h3 style="color: #ffffff">{{item.nombre_categoria}}</h3>
+            <h3 style="color: #ffffff">{{item.nombre}}</h3>
+            <p style="color: #d2e4b5">{{item.hora_inicio}}</p>
+            <p style="color: #d2e4b5">{{item.hora_fin}}</p>
+            <!-- <ion-item-divider color="light"></ion-item-divider> -->
+        </ion-item>
+    </ion-list>
+
+</ion-content>

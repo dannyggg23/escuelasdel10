@@ -1,0 +1,98 @@
+<ion-menu side="left" [content]="content">
+    <ion-header>
+        <ion-toolbar padding color="secondary">
+            <!-- <img style="border-radius:50%; width: 20%;height: 25%;display: block;margin: auto;" [src]="imagenUsuario">
+            <h3 style="text-align: center">{{nombreUsuario}}</h3> -->
+
+            <ion-item no-lines color="secondary">
+                <ion-thumbnail item-start>
+                    <img [src]="imagenUsuario">
+                </ion-thumbnail>
+                <h2>{{nombreUsuario}}</h2>
+                <h2>{{email_usuario}}</h2>
+                <h2>{{celular_usuario}}</h2>
+            </ion-item>
+
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content padding>
+
+
+        <button ion-button icon-start large clear color="nav" (click)=" openPage(InicioadminPage)">
+            <ion-icon name="home"></ion-icon>
+          Inicio
+        </button>
+        <button ion-button icon-start large clear color="nav" (click)="openPage(NotificacionesAdminPage)">
+                    <ion-icon name="notifications"></ion-icon>
+          Notificaciones
+        </button>
+        <button ion-button icon-start large clear color="nav" (click)="openPage(AdminSucursalesPage)">
+                <ion-icon name="map"></ion-icon>
+          Sucursales
+        </button>
+        <button ion-button icon-start large clear color="nav" (click)="openPage(AdminCategoriasPage)">
+                <ion-icon name="football"></ion-icon>
+         Categorias
+        </button>
+
+        <button ion-button icon-start large clear color="nav" (click)="openPage(AdminEntrenadoresPage)">
+                <ion-icon name="person"></ion-icon>
+        Entrenadores
+        </button>
+
+<!-- Submenu para alumnos-->
+
+        <ion-list id="sidenav">
+            <!-- other menu items will go here -->
+            <button ion-button icon-start large clear color="nav" (click)="menuItemHandler1()" >
+                <ion-icon name="shirt"></ion-icon>
+                Alumnos
+            </button>
+
+              <ion-item submenu-item icon-start clear  *ngIf="showSubmenu1" (click)="openPage(AdminAlumnoPage)">
+                <ion-icon name="card"></ion-icon>
+                Inscripciones
+              </ion-item>
+
+              <ion-item submenu-item icon-start clear  *ngIf="showSubmenu1" (click)="openPage(AdminConsultasAlumnosPage)">
+                <ion-icon name="clipboard"></ion-icon>
+                Consultas
+              </ion-item>
+             
+            <!-- other menu items will go here -->
+            </ion-list>
+
+<!-- Submenu para Mensualidades-->
+
+        <ion-list id="sidenav">
+            <!-- other menu items will go here -->
+       
+              <button ion-button icon-start large clear color="nav" (click)="menuItemHandler()">
+                <ion-icon name="card"></ion-icon>
+                Mensualidades
+             </button>
+              <ion-item submenu-item icon-start clear  *ngIf="showSubmenu" (click)="openPage(AdminMensualidadesPage)">
+                <ion-icon name="card"></ion-icon>
+                Pagos
+              </ion-item>
+
+              <ion-item submenu-item icon-start clear  *ngIf="showSubmenu" (click)="openPage(ConsultasAdminPage)">
+                <ion-icon name="clipboard"></ion-icon>
+                Consultas
+              </ion-item>
+             
+            <!-- other menu items will go here -->
+            </ion-list>
+
+
+        <button ion-button icon-start large clear color="nav" (click)="cerra_sesion()">
+                <ion-icon name="exit"></ion-icon>
+          Cerrar Sesión
+        </button>
+
+
+    </ion-content>
+</ion-menu>
+
+<ion-nav id="nav " #content [root]="rootPage "></ion-nav>

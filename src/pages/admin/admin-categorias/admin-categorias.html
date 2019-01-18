@@ -1,0 +1,56 @@
+<ion-header #head>
+
+    <ion-navbar color="nav">
+        <ion-buttons end>
+            <button ion-button menuToggle left>
+              <ion-icon class="menu_icon" name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>LISTA DE CATEGORIAS</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content hide-header [header]="head" auto-hide>
+
+    <div class="content" *ngIf="p_categorias.categorias.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-list no-lines>
+        <ion-item style="border-bottom: solid #76ff03;" *ngFor="let item of p_categorias.categorias">
+            <ion-thumbnail item-start>
+                <img style="border-radius:50%;" [src]="urlimagen+item.imagen">
+            </ion-thumbnail>
+            <h2>{{item.nombre_sucursal}}</h2>
+            <p>{{item.nombre_categoria}}</p>
+            <p>{{item.nombre}}-<strong>{{item.hora_inicio}}/{{item.hora_fin}}</strong></p>
+            <p *ngIf="item.disponible=='1'" style="color: darkgreen">ENTRENADOR</p>
+            <p *ngIf="item.disponible=='0'" style="color:crimson">SIN ENTRENADOR</p>
+            <button ion-button clear item-end [navPush]="pushPage" [navParams]="{item:item}">Actualizar</button>
+        </ion-item>
+    </ion-list>
+
+
+    <!-- <ion-fab bottom right #fab>
+
+        <button (click)="crear_categoria()" color="nav" ion-fab>
+         <ion-icon ios="ios-create" md="md-create"></ion-icon>
+     </button>
+
+    </ion-fab> -->
+
+    <ion-fab bottom right #fab>
+        <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>
+        <ion-fab-list side="top">
+            <button (click)="crear_categoria()" ion-fab><ion-icon ios="ios-create" md="md-create"></ion-icon></button>
+            <button ion-fab (click)="nueva_categoria()"><ion-icon ios="ios-football" md="md-football"></ion-icon></button>
+            <button ion-fab (click)="nueva_horario()"><ion-icon ios="ios-time" md="md-time"></ion-icon></button>
+        </ion-fab-list>
+    </ion-fab>
+
+</ion-content>

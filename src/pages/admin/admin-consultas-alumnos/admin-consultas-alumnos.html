@@ -1,0 +1,33 @@
+
+<ion-header>
+
+  <ion-navbar color="nav">
+        <ion-buttons end>
+                <button ion-button menuToggle left>
+            <ion-icon class="menu_icon" name="menu"></ion-icon>
+          </button>
+            </ion-buttons>
+    <ion-title>Busqueda de ALumnos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+        <ion-searchbar placeholder="Busqueda por Nombre" (ionInput)="getItems($event)"></ion-searchbar>
+
+        <div *ngIf="p_consultasAdmin.alumnos_nombre.length==0" style="padding: 0%;border-style: none">
+            <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
+            <ion-item no-lines style="text-align: center;background: #00061e">
+                <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+            </ion-item>
+        </div>
+
+        <ion-list no-lines>
+            <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let item of p_consultasAdmin.alumnos_nombre" [navPush]="pushPage" [navParams]="{item:item}">
+                <h2>{{ item.nombre_alumno }}</h2>
+            </ion-item>
+        </ion-list>
+
+</ion-content>

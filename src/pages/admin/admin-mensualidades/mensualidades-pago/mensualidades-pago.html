@@ -1,0 +1,104 @@
+<ion-header>
+    <ion-navbar color="nav">
+        <ion-title>FACTURACIÓN</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    <!---->
+    <ion-card>
+
+        <ion-toolbar>
+            <ion-title>FACTURACIÓN</ion-title>
+        </ion-toolbar>
+        <ion-item>
+            <ion-label>N.-</ion-label>
+            <ion-input type="text" [(ngModel)]="num_comprobante"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Fecha(*)</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="fecha"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Tipo Documento(*)</ion-label>
+            <ion-select [(ngModel)]="tipo_documento">
+                <ion-option value="Factura">Factura</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Serie(*)</ion-label>
+            <ion-input type="text" [(ngModel)]="serie_comprobante"></ion-input>
+
+        </ion-item>
+    </ion-card>
+
+
+    <ion-card>
+        <ion-grid>
+            <ion-row justify-content-center style="background-color: #ece9e8">
+                <ion-col>
+                    <ion-title>Cantidad</ion-title>
+                </ion-col>
+                <ion-col>
+                    <ion-title>Detalle</ion-title>
+                </ion-col>
+                <ion-col>
+                    <ion-title>Precio</ion-title>
+                </ion-col>
+                <ion-col>
+                    <ion-title>Total</ion-title>
+                </ion-col>
+            </ion-row>
+
+            <ion-row justify-content-center>
+                <ion-col>
+                    <ion-input type="number" [(ngModel)]="numero_meses_pago" (ionInput)="onKeyPressed($event)"></ion-input>
+                </ion-col>
+                <ion-col>
+                    <ion-input type="text" [(ngModel)]="nombre_productos_servicios"></ion-input>
+                </ion-col>
+                <ion-col>
+                    <ion-input type="number" [(ngModel)]="precio_pago"></ion-input>
+                </ion-col>
+                <ion-col>
+                    <ion-input type="text" [value]="precio_pago*numero_meses_pago"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-item style="background-color: #ece9e8">
+            <ion-label>
+                <ion-title>Sub Total $</ion-title>
+            </ion-label>
+            <ion-input type="text" text-right [value]="precio_pago*numero_meses_pago"></ion-input>
+        </ion-item>
+        <ion-item style="background-color: #ece9e8">
+            <ion-label>
+                <ion-title>Iva 12 %</ion-title>
+            </ion-label>
+            <ion-input type="text" text-right [value]="(precio_pago*numero_meses_pago)*0.12"></ion-input>
+        </ion-item>
+        <ion-item style="background-color: #ece9e8">
+            <ion-label>
+                <ion-title>Descuento %</ion-title>
+            </ion-label>
+            <ion-input type="number" text-right [(ngModel)]="descuento_pago"></ion-input>
+        </ion-item>
+        <ion-item style="background-color: #ece9e8">
+            <ion-label>
+                <ion-title>Total $</ion-title>
+            </ion-label>
+            <ion-input type="text" text-right [value]="(((precio_pago*numero_meses_pago)*0.12)+(precio_pago*numero_meses_pago))-(((precio_pago*numero_meses_pago)*descuento_pago)/100)"></ion-input>
+        </ion-item>
+
+    </ion-card>
+    <!--precio_pago*numero_meses_pago | total:descuento_pago-->
+
+    <button ion-button full (click)="insertar_datos()" color="secondary">Guardar</button>
+
+</ion-content>

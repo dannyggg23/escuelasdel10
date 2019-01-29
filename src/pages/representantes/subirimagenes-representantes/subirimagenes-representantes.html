@@ -5,24 +5,15 @@
     </ion-navbar>
 
     <ion-toolbar color="nav">
-
-
         <ion-segment [(ngModel)]="mymodel" color="secondary">
-
             <ion-segment-button value="segment1">
                 Historial
             </ion-segment-button>
-
             <ion-segment-button value="segment2">
                 Enviar
             </ion-segment-button>
-
-
         </ion-segment>
-
-
     </ion-toolbar>
-
 </ion-header>
 
 
@@ -30,7 +21,7 @@
 
     <div [ngSwitch]="mymodel">
 
-        <ion-list *ngSwitchCase="'segment1'">
+        <ion-list  *ngSwitchCase="'segment1'">
 
             <div class="content" *ngIf="p_representantestab.depositosRepresentante.length==0" style="padding: 0%;border-style: none">
                 <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../../assets/imgs/busqueda.png">
@@ -84,10 +75,5 @@
 
 
     </div>
-
-
-
-
-
 
 </ion-content>

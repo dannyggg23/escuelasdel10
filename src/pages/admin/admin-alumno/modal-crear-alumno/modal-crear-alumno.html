@@ -1,12 +1,216 @@
 <ion-header>
 
-    <ion-navbar>
-        <ion-title>Salir</ion-title>
+    <ion-navbar color="nav">
+        <ion-title>Matrícula</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
+<ion-content padding>
 
+        <ion-list no-lines>
+                <ion-grid>
+                        <ion-row>
+                          <ion-col >
+                                <ion-item item-start  style="border-bottom: solid #76ff03;">
+                                        <ion-label stacked>Cédula(*)</ion-label>
+                                        <ion-input type="text" [(ngModel)]="cedula_alumno"></ion-input>
+                                    </ion-item>
+                          </ion-col>
+                          <ion-col>
+                                <ion-item item-end style="border-bottom: solid #76ff03;">
+                                        <ion-label stacked>Nombre del alumno(*)</ion-label>
+                                        <ion-input type="text" [(ngModel)]="nombre_alumno"></ion-input>
+                                    </ion-item>
+                          </ion-col>
+                        </ion-row>
+                    </ion-grid>
+              
+                <ion-grid>
+                        <ion-row>
+                          <ion-col >
+                                <ion-item style="border-bottom: solid #76ff03;">
+                                        <ion-label stacked>Género(*)</ion-label>
+                                        <ion-select [(ngModel)]="genero_alumno">
+                                            <ion-option value="Masculino">Masculino</ion-option>
+                                            <ion-option value="Femenino">Femenino</ion-option>
+                                        </ion-select>
+                                    </ion-item>
+                          </ion-col>
+                          <ion-col>
+                                <ion-item style="border-bottom: solid #76ff03;">
+                                        <ion-label stacked>Tipo de Sangre(*)</ion-label>
+                                        <ion-select [(ngModel)]="tipo_sangre_alumno">
+                                            <ion-option value="O negativo">O negativo</ion-option>
+                                            <ion-option value="O positivo">O positivo</ion-option>
+                                            <ion-option value="A negativo">A negativo</ion-option>
+                                            <ion-option value="A positivo">A positivo</ion-option>
+                                            <ion-option value="B negativo">B negativo</ion-option>
+                                            <ion-option value="B positivo">B positivo</ion-option>
+                                            <ion-option value="AB negativo">AB negativo</ion-option>
+                                            <ion-option value="AB positivo">AB positivo</ion-option>
+                                        </ion-select>
+                                    </ion-item>
+                          </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                    <ion-item style="border-bottom: solid #76ff03;">
+                            <ion-label stacked>Escuela(*)</ion-label>
+                            <ion-input type="text" [(ngModel)]="escuela_alumno"></ion-input>
+                        </ion-item>
+                        <ion-item style="border-bottom: solid #76ff03;">
+                                <ion-label stacked>Fecha Nacimiento(*)</ion-label>
+                                <ion-datetime style="color: #d2e4b5;" displayFormat="MM/DD/YYYY" [(ngModel)]="fecha_nacimiento"></ion-datetime>
+                            </ion-item>
+                        <ion-grid>
+                                <ion-row>
+                                  <ion-col >
+                                        <ion-item style="border-bottom: solid #76ff03;">
+                                                <ion-label stacked>Pocicion(*)</ion-label>
+                                                <ion-input type="text" [(ngModel)]="posicion_alumno"></ion-input>
+                                            </ion-item>
+                                  </ion-col>
+                                  <ion-col>
+                                        <ion-item style="border-bottom: solid #76ff03;">
+                                                <ion-label stacked>Peso(*)</ion-label>
+                                                <ion-input type="text" [(ngModel)]="peso_alumno"></ion-input>
+                                            </ion-item>
+                                  </ion-col>
+                                  <ion-col>
+                                        
+                                        <ion-item style="border-bottom: solid #76ff03;">
+                                          <ion-label stacked>Talla(*)</ion-label>
+                                           <ion-input type="text" [(ngModel)]="talla_alumno"></ion-input>
+                                        </ion-item>
+                                  </ion-col>
+                                </ion-row>
+                            </ion-grid>
+        
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Información</ion-label>
+                    <ion-input type="text" [(ngModel)]="informacion_alumno"></ion-input>
+                </ion-item>
+        
+                <ion-grid>
+                        <ion-row>
+                          <ion-col >
+                                <ion-item style="border-bottom: solid #76ff03;">
+                                        <ion-label stacked>Cedula de representante (*)</ion-label>
+                                    <ion-input type="text" [(ngModel)]="cedula_representante" (focusout)="bandera_me()" ></ion-input>
+                                </ion-item>
+                          </ion-col>
+                          <ion-col>
+                                <ion-item style="border-bottom: solid #76ff03;">
+                                        <ion-label stacked>Descuento(*)</ion-label>
+                                    <ion-input type="text" [(ngModel)]="descuento_ficha_alumno"></ion-input>
+                                    </ion-item>
+                          </ion-col>
+                        </ion-row>
+                    </ion-grid>
+
+
+            </ion-list>
+
+            <ion-list no-lines *ngIf="bandera" >
+                  
+                    <ion-item style="border-bottom: solid #76ff03;">
+                        <ion-label stacked>Nombre(*)</ion-label>
+                        <ion-input type="text" [(ngModel)]="nombre_representante"></ion-input>
+                    </ion-item>
+
+                <ion-grid>
+                    <ion-row>
+                    <ion-col>
+                            <ion-item style="border-bottom: solid #76ff03;">
+                                    <ion-label stacked>Cédula Conyugue(*)</ion-label>
+                                    <ion-input type="text" [(ngModel)]="cedula_conyugue_representante"></ion-input>
+                                </ion-item>
+                    </ion-col>
+                    <ion-col>
+                            <ion-item style="border-bottom: solid #76ff03;">
+                                    <ion-label stacked>Nombre Conyugue(*)</ion-label>
+                                    <ion-input type="text" [(ngModel)]="nombre_conyugue_representante"></ion-input>
+                                </ion-item>
+                    </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+                    <ion-item style="border-bottom: solid #76ff03;">
+                        <ion-label stacked>Email(*)</ion-label>
+                        <ion-input type="Email" [(ngModel)]="email_representante"></ion-input>
+                    </ion-item>
+
+                    <ion-item style="border-bottom: solid #76ff03;">
+                        <ion-label stacked>Dirección(*)</ion-label>
+                        <ion-input type="text" [(ngModel)]="direccion_representante"></ion-input>
+                    </ion-item>
+
+                    <ion-grid>
+                             <ion-row>
+                            <ion-col>
+                                    <ion-item style="border-bottom: solid #76ff03;">
+                                            <ion-label stacked>Teléfono</ion-label>
+                                            <ion-input type="text" [(ngModel)]="telefono_representante"></ion-input>
+                                        </ion-item>
+                            </ion-col>
+                            <ion-col>
+                                    <ion-item style="border-bottom: solid #76ff03;">
+                                            <ion-label stacked>Celular(*)</ion-label>
+                                            <ion-input type="text" [(ngModel)]="celular_representante"></ion-input>
+                                        </ion-item>
+                            </ion-col>
+                             </ion-row>
+                        </ion-grid>
+
+                        <ion-grid>
+                             <ion-row>
+                                <ion-col>
+                                        <ion-item style="border-bottom: solid #76ff03;">
+                                                <ion-label stacked>Género(*)</ion-label>
+                                                <ion-select [(ngModel)]="genero_representante">
+                                                    <ion-option value="Masculino">Masculino</ion-option>
+                                                    <ion-option value="Femenino">Femenino</ion-option>
+                                                </ion-select>
+                                            </ion-item>
+                                </ion-col>
+                                <ion-col>
+                                        <ion-item style="border-bottom: solid #76ff03;">
+                                                <ion-label stacked>Parentezco(*)</ion-label>
+                                                <ion-input type="text" [(ngModel)]="parentesco_respresentante"></ion-input>
+                                            </ion-item>
+                                </ion-col>
+                                 </ion-row>
+                            </ion-grid>
+
+                    <ion-item style="border-bottom: solid #76ff03;">
+                        <ion-label stacked>Fecha de Nacimiento(*)</ion-label>
+                        <ion-datetime style=" color: #d2e4b5;" displayFormat="MM/DD/YYYY" [(ngModel)]="fecha_nacimiento_representante"></ion-datetime>
+                    </ion-item>
+
+                    <ion-item style="border-bottom: solid #76ff03;">
+                        <ion-label stacked>Lugar de trabajo(*)</ion-label>
+                        <ion-input type="text" [(ngModel)]="lugar_trabajo_representante"></ion-input>
+                    </ion-item>
+
+                    <ion-grid>
+                         <ion-row>
+                            <ion-col>
+                                    <ion-item style="border-bottom: solid #76ff03;">
+                                            <ion-label stacked>Ciudad(*)</ion-label>
+                                            <ion-select [(ngModel)]="ciudad_representante">
+                                                <ion-option *ngFor="let item of p_sucursales.ciudades" [value]="item.idCiudad">{{item.ciudad}}</ion-option>
+                                            </ion-select>
+                                        </ion-item>
+                            </ion-col>
+                            <ion-col>
+                                    <ion-item style="border-bottom: solid #76ff03;">
+                                            <ion-label stacked>Barrio(*)</ion-label>
+                                            <ion-input type="text" [(ngModel)]="barrio_representante" ></ion-input>
+                                        </ion-item>
+                            </ion-col>
+                             </ion-row>
+                        </ion-grid>
+                        <button ion-button full (click)="insertar_datos()" color="secondary">Guardar</button>
+                </ion-list>
 </ion-content>

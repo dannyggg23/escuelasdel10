@@ -17,7 +17,7 @@
     </div>
 
     <ion-list no-lines>
-        <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let item of p_alumnos.categorias_horario_sucursal" [navPush]="pushPage" [navParams]="{item:item}">
+        <ion-item style=" border-bottom: solid #76ff03;" *ngFor="let item of p_alumnos.categorias_horario_sucursal" [navPush]="pushPage" [navParams]="{item:item.idsucursal_categorias}">
             <h2>{{item.nombre_categoria}}</h2>
             <h2>{{item.nombre}}</h2>
             <p>{{item.hora_inicio}}/{{item.hora_fin}}</p>

@@ -1,3 +1,4 @@
+import { ModalCrearAlumnoPage } from './../modal-crear-alumno/modal-crear-alumno';
 
 import { AlumnosProvider } from './../../../../providers/alumnos/alumnos';
 import { Component } from '@angular/core';
@@ -12,7 +13,8 @@ import { AdminMensualidadesConsultaRepresentantePage } from '../../admin-mensual
 export class ModalCategoriasAlumnoPage {
 
   item:any;
-  pushPage:any=AdminMensualidadesConsultaRepresentantePage;
+  //pushPage:any=AdminMensualidadesConsultaRepresentantePage;
+  pushPage:any=ModalCrearAlumnoPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private p_alumnos:AlumnosProvider) {

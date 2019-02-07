@@ -8,6 +8,9 @@ import { URL_SERVICIOS, URL_SERVICIOSCRUD } from '../../app/config/url_servicios
 @Injectable()
 export class NotificacionesProvider {
 
+notificaciones:any[]=[];
+loadin:any;
+
   constructor(public http: Http,private toastCtrl: ToastController
     ,private alertCtrl:AlertController,private loadingCtrl: LoadingController) {
   
@@ -90,6 +93,34 @@ export class NotificacionesProvider {
       buttons: ["OK"]
     }).present();
 
+  }
+
+  cargarNotificaciones(){
+    this.notificaciones=[];
+    this.loadin=this.loadingCtrl.create({
+      content: "Please wait..."
+    });
+    let promesa=new Promise( (resolve,reject)=>{
+      this.loadin.present();
+      let url=URL_SERVICIOS+"/Listar/listaNotificaciones";
+      this.http.get(url)
+                .map( resp => resp.json() )
+                .subscribe( data=>{
+                  console.log(data);
+                  if(data.error)
+                  {
+                    //this.presentToast("Error al obtener los datos");
+                  }
+                  else
+                  {
+                    //this.presentToast("Datos cargados");
+                    this.notificaciones.push(...data.notificaciones);
+                  }
+                  resolve();
+                })
+    });
+    this.loadin.dismiss();
+    return promesa;
   }
 
 

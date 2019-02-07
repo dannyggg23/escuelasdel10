@@ -10,6 +10,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'notificaciones-admin.html',
 })
 export class NotificacionesAdminPage {
+
 mensaje:string="";
 titulo:string="";
 subtitulo:string="";
@@ -23,8 +24,14 @@ mymodel="segment1";
   }
 
   ionViewDidLoad() {
-    this.p_sucursales.cargar_todos();
-    this.p_entrenadores.categoriashorariosucursal();
+    this.p_sucursales.cargar_todos().then(()=>{
+      this.p_entrenadores.categoriashorariosucursal().then(()=>{
+        this.p_notificaciones.cargarNotificaciones().then(()=>{
+          
+        })
+      })
+    })
+    
   }
 
   notificaciones_todos()
@@ -71,5 +78,7 @@ mymodel="segment1";
    }
 
  }
+
+ 
 
 }

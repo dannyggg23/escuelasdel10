@@ -23,6 +23,8 @@ export class AlumnosProvider {
   horarios:any[]=[];
   loadin:any;
 
+  notificaciones:any;
+
   constructor(public http: Http,private toastCtrl: ToastController
     ,private alertCtrl:AlertController,private loadingCtrl: LoadingController,
     private document: DocumentViewer, 
@@ -426,6 +428,39 @@ export class AlumnosProvider {
             this.mostar_alerta("Datos enviados","Estamos procesando sus datos");
                   });
 
+    }
+
+    validar_cedula(cedula_representante:string)
+    {
+       
+        this.loadin=this.loadingCtrl.create({
+          content: "Please wait..."
+        });
+        let promesa=new Promise( (resolve,reject)=>{
+          this.loadin.present();
+          let url=URL_SERVICIOS+"/Listar/validarCedula/"+cedula_representante;
+          this.http.get(url)
+                    .map( resp => resp.json() )
+                    .subscribe( data=>{
+                      console.log(data);
+                      if(data.error)
+                      {
+                        
+                        this.mostar_alerta("Error",data.notificaciones);
+                        this.notificaciones=data.notificaciones;
+                      }
+                      else
+                      {
+                      
+                        this.mostar_alerta("Correcto",data.notificaciones)
+                        this.notificaciones=data.notificaciones;
+                       
+                      }
+                      resolve();
+                    })
+        });
+        this.loadin.dismiss();
+        return promesa;
     }
 
 }

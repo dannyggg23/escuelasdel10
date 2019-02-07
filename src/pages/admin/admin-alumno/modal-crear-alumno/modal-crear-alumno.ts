@@ -60,7 +60,17 @@ ciudad_representante:any="";
     this.p_alumnos.busquedaReMatri(this.cedula_representante).then(()=>{
       if(this.p_alumnos.representante_datos[0]==null)
       {
-        console.log("No esxisten datos");
+       
+        this.p_alumnos.validar_cedula(this.cedula_representante).then(()=>{
+          if(this.p_alumnos.notificaciones=="CEDULA VALIDA")
+          {
+    
+          }
+          else
+          {
+            this.cedula_representante="";
+          }
+        })
 
       }
       else
@@ -192,5 +202,37 @@ ciudad_representante:any="";
         }   
     }
   }
-  
+
+  validar_cedula1()
+  {
+    this.p_alumnos.validar_cedula(this.cedula_alumno).then(()=>{
+      if(this.p_alumnos.notificaciones=="CEDULA VALIDA")
+      {
+
+      }
+      else
+      {
+        this.cedula_alumno="";
+      }
+    })
+  }
+
+  validar_cedula2()
+  {
+   
+  }
+
+  validar_cedula3()
+  {
+    this.p_alumnos.validar_cedula(this.cedula_conyugue_representante).then(()=>{
+      if(this.p_alumnos.notificaciones=="CEDULA VALIDA")
+      {
+
+      }
+      else
+      {
+        this.cedula_conyugue_representante="";
+      }
+    })
+  }
 }

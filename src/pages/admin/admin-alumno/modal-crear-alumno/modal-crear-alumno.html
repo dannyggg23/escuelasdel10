@@ -15,7 +15,7 @@
                           <ion-col >
                                 <ion-item item-start  style="border-bottom: solid #76ff03;">
                                         <ion-label stacked>Cédula(*)</ion-label>
-                                        <ion-input type="text" [(ngModel)]="cedula_alumno"></ion-input>
+                                        <ion-input type="number" [(ngModel)]="cedula_alumno" (focusout)="validar_cedula1()"></ion-input>
                                     </ion-item>
                           </ion-col>
                           <ion-col>
@@ -73,15 +73,15 @@
                                   </ion-col>
                                   <ion-col>
                                         <ion-item style="border-bottom: solid #76ff03;">
-                                                <ion-label stacked>Peso(*)</ion-label>
-                                                <ion-input type="text" [(ngModel)]="peso_alumno"></ion-input>
+                                                <ion-label stacked>Peso KL(*)</ion-label>
+                                                <ion-input type="number" [(ngModel)]="peso_alumno"></ion-input>
                                             </ion-item>
                                   </ion-col>
                                   <ion-col>
                                         
                                         <ion-item style="border-bottom: solid #76ff03;">
-                                          <ion-label stacked>Talla(*)</ion-label>
-                                           <ion-input type="text" [(ngModel)]="talla_alumno"></ion-input>
+                                          <ion-label stacked>Talla CM(*)</ion-label>
+                                           <ion-input type="number" [(ngModel)]="talla_alumno"></ion-input>
                                         </ion-item>
                                   </ion-col>
                                 </ion-row>
@@ -97,13 +97,13 @@
                           <ion-col >
                                 <ion-item style="border-bottom: solid #76ff03;">
                                         <ion-label stacked>Cedula de representante (*)</ion-label>
-                                    <ion-input type="text" [(ngModel)]="cedula_representante" (focusout)="bandera_me()" ></ion-input>
+                                    <ion-input type="number" [(ngModel)]="cedula_representante" (focusout)="bandera_me()"  ></ion-input>
                                 </ion-item>
                           </ion-col>
                           <ion-col>
                                 <ion-item style="border-bottom: solid #76ff03;">
-                                        <ion-label stacked>Descuento(*)</ion-label>
-                                    <ion-input type="text" [(ngModel)]="descuento_ficha_alumno"></ion-input>
+                                        <ion-label stacked>Descuento % (*)</ion-label>
+                                    <ion-input type="number" [(ngModel)]="descuento_ficha_alumno"></ion-input>
                                     </ion-item>
                           </ion-col>
                         </ion-row>
@@ -124,7 +124,7 @@
                     <ion-col>
                             <ion-item style="border-bottom: solid #76ff03;">
                                     <ion-label stacked>Cédula Conyugue(*)</ion-label>
-                                    <ion-input type="text" [(ngModel)]="cedula_conyugue_representante"></ion-input>
+                                    <ion-input type="number" [(ngModel)]="cedula_conyugue_representante" (focusout)="validar_cedula3()"></ion-input>
                                 </ion-item>
                     </ion-col>
                     <ion-col>
@@ -151,13 +151,13 @@
                             <ion-col>
                                     <ion-item style="border-bottom: solid #76ff03;">
                                             <ion-label stacked>Teléfono</ion-label>
-                                            <ion-input type="text" [(ngModel)]="telefono_representante"></ion-input>
+                                            <ion-input type="number" [(ngModel)]="telefono_representante"></ion-input>
                                         </ion-item>
                             </ion-col>
                             <ion-col>
                                     <ion-item style="border-bottom: solid #76ff03;">
                                             <ion-label stacked>Celular(*)</ion-label>
-                                            <ion-input type="text" [(ngModel)]="celular_representante"></ion-input>
+                                            <ion-input type="number" [(ngModel)]="celular_representante"></ion-input>
                                         </ion-item>
                             </ion-col>
                              </ion-row>

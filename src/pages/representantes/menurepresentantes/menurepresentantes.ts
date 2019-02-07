@@ -20,6 +20,7 @@ tab2:any;
 tab3:any;
 tab4:any;
 tab5:any;
+tab6:any="MostrarNotificacionesPage";
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,private alertCtrl:AlertController,private storage:Storage,

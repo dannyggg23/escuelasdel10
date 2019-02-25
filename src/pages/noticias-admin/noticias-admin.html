@@ -1,0 +1,76 @@
+<ion-header >
+  <ion-navbar color="nav">
+      <ion-buttons end>
+          <button ion-button menuToggle left>
+    <ion-icon class="menu_icon" name="menu"></ion-icon>
+  </button>
+      </ion-buttons>
+      <ion-title>NOTICIAS</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar color="nav">
+    <ion-segment [(ngModel)]="mymodel" color="secondary">
+        <ion-segment-button value="segment1">
+            NOTICIAS
+        </ion-segment-button>
+        <ion-segment-button value="segment2">
+            SUBIR
+        </ion-segment-button>
+    </ion-segment>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div [ngSwitch]="mymodel">
+        <ion-list  *ngSwitchCase="'segment1'">
+    <div *ngIf="p_informacion.noticias.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-card *ngFor="let item of p_informacion.noticias">
+        <img [src]="urlimagen+item.imagen" />
+        <ion-card-content>
+            <ion-card-title>
+                {{item.titulo}}
+            </ion-card-title>
+            <p>{{item.fecha}}</p>
+            <p>
+                {{item.descripcion}}
+            </p>
+            <!-- <button *ngIf="item.estado==1"  ion-button full (click)="desactivar(item.estado)" color="secondary">Desactivar</button>
+            <button *ngIf="item.estado==0" ion-button full (click)="activar(item.estado)" color="primary">Activar</button> -->
+        </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+        <ion-list *ngSwitchCase="'segment2'">
+
+            <button ion-button full (click)="openGalery()" color="secondary">Galería</button>
+            <button ion-button full (click)="openCamera()" color="secondary">Camara</button>
+
+            <img [src]="base64Image">
+
+            <ion-list no-lines>
+
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Fecha(*)</ion-label>
+                    <ion-input type="date" [(ngModel)]="fecha"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Titulo</ion-label>
+                    <ion-input type="text" [(ngModel)]="titulo"></ion-input>
+                </ion-item>
+                <ion-item style="border-bottom: solid #76ff03;">
+                    <ion-label stacked>Descripción(*)</ion-label>
+                    <ion-input type="text" [(ngModel)]="descripcion"></ion-input>
+                </ion-item>
+            </ion-list>
+            <button ion-button full (click)="uoloadImage()" color="secondary">Enviar</button>
+
+        </ion-list>
+    </div>
+
+</ion-content>

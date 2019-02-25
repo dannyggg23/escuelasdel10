@@ -1,0 +1,53 @@
+<ion-header >
+  <ion-navbar color="nav">
+      <ion-buttons end>
+          <button ion-button menuToggle left>
+    <ion-icon class="menu_icon" name="menu"></ion-icon>
+  </button>
+      </ion-buttons>
+      <ion-title>IMAGENES APP</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar color="nav">
+    <ion-segment [(ngModel)]="mymodel" color="secondary">
+        <ion-segment-button value="segment1">
+            IMAGENES
+        </ion-segment-button>
+        <ion-segment-button value="segment2">
+            SUBIR
+        </ion-segment-button>
+    </ion-segment>
+</ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div [ngSwitch]="mymodel">
+        <ion-list  *ngSwitchCase="'segment1'">
+    <div *ngIf="p_informacion.imagenes_app.length==0" style="padding: 0%;border-style: none">
+        <img style="width: 30%;height: 30%;display: block;margin: auto" src="../../assets/imgs/busqueda.png">
+        <ion-item no-lines style="text-align: center;background: #00061e">
+            <h2 style="font-weight: bold;color: red">NO EXISTEN REGISTROS</h2>
+        </ion-item>
+    </div>
+
+    <ion-card *ngFor="let item of p_informacion.imagenes_app">
+        <img [src]="urlimagen+item.imagen" />
+        <button color="rojo" ion-button full icon-left (click)="eliminar(item.idimagenes_app)">
+          <ion-icon name="trash"></ion-icon>
+            ELIMINAR
+        </button>
+    </ion-card>
+  </ion-list >
+
+        <ion-list *ngSwitchCase="'segment2'">
+
+            <button ion-button full (click)="openGalery()" color="secondary">Galería</button>
+            <button ion-button full (click)="openCamera()" color="secondary">Camara</button>
+
+            <img [src]="base64Image">
+
+            <button ion-button full (click)="uoloadImage()" color="secondary">Enviar</button>
+
+        </ion-list>
+    </div>
+
+</ion-content>

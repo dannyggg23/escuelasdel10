@@ -41,6 +41,8 @@ export class AdminbienbenidaPage {
   imagenUsuario:any=URL_IMG_USUARIO;
   email_usuario:any="";
   celular_usuario:any="";
+  NoticiasAdminPage:any="NoticiasAdminPage";
+  ImagenesAppAdminPage:any="ImagenesAppAdminPage";
   item:any;
   params:any;
 

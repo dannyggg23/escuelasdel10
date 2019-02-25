@@ -1,45 +1,35 @@
+import { URL_IMG_NOTICIA, URL_SERVICIOS } from './../../app/config/url_servicios';
 import { Component } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
-import {  HttpClient } from '@angular/common/http';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
+import { Camera,CameraOptions } from '@ionic-native/camera';
+import { InformacionAcademiaProvider } from '../../providers/informacion-academia/informacion-academia';
 import { Observable } from 'rxjs/Observable';
-import { URL_SERVICIOS, URL_IMG_DEPOSITOS } from '../../../app/config/url_servicios';
-import { InformacionAcademiaProvider } from '../../../providers/informacion-academia/informacion-academia';
-import { Storage } from '@ionic/storage';
-import { RepresentantestabsProvider } from '../../../providers/representantestabs/representantestabs';
 
-
+@IonicPage()
 @Component({
-  selector: 'page-subirimagenes-representantes',
-  templateUrl: 'subirimagenes-representantes.html',
+  selector: 'page-noticias-admin',
+  templateUrl: 'noticias-admin.html',
 })
-export class SubirimagenesRepresentantesPage {
+export class NoticiasAdminPage {
+
   mymodel="segment1";
   idrepresentante:any="";
 
+  titulo:any="";
   fecha:any="";
-  ficha_alumno_idficha_alumno:any="";
   descripcion:any="";
-  imgdeposito=URL_IMG_DEPOSITOS;
+  urlimagen=URL_IMG_NOTICIA;
   base64Image:string="";
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private camera:Camera,private http:HttpClient,
-    private p_informacion:InformacionAcademiaProvider,
-    private storage:Storage,
-    private p_representantestab:RepresentantestabsProvider) {
+    private p_informacion:InformacionAcademiaProvider) {
   }
 
   ionViewDidLoad() {
-    this.storage.get('representante').then((data)=>{
-      this.idrepresentante=data.idrepresentante;
-      this.p_representantestab.cargar_alumnosRepresentante(data.idrepresentante).then(()=>{
-      this.p_representantestab.cargar_depositos(this.idrepresentante);
-      
-      });
-     })
-
+    this.p_informacion.cargar_noticias();
   }
-  
 
   openCamera()
   {
@@ -82,7 +72,7 @@ export class SubirimagenesRepresentantesPage {
 
   uoloadImage()
   {
-    if(this.ficha_alumno_idficha_alumno=="" || 
+    if(this.titulo=="" || 
     this.base64Image=="" || 
     this.fecha=="" || 
     this.descripcion=="")
@@ -92,14 +82,21 @@ export class SubirimagenesRepresentantesPage {
 
     else
     {
-
-      this.p_informacion.subir_imagenes_depositos(this.base64Image,this.fecha,this.ficha_alumno_idficha_alumno,this.descripcion);
-      this.ficha_alumno_idficha_alumno="";
+      this.p_informacion.subir_imagenes_noticias(this.base64Image,this.fecha,this.titulo,this.descripcion);
+      this.titulo="";
       this.base64Image="";
       this.fecha="";
       this.descripcion="";
     }
   }
 
-  
+  activar(id)
+  {
+
+  }
+
+  desactivar(id){
+
+  }
+
 }

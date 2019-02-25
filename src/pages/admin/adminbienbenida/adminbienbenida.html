@@ -17,8 +17,6 @@
     </ion-header>
 
     <ion-content padding>
-
-
         <button ion-button icon-start large clear color="nav" (click)=" openPage(InicioadminPage)">
             <ion-icon name="home"></ion-icon>
           Inicio
@@ -27,6 +25,14 @@
                     <ion-icon name="notifications"></ion-icon>
           Notificaciones
         </button>
+        <button ion-button icon-start large clear color="nav" (click)="openPage(NoticiasAdminPage)">
+          <ion-icon name="information-circle"></ion-icon>
+          Noticias
+       </button>
+       <button ion-button icon-start large clear color="nav" (click)="openPage(ImagenesAppAdminPage)">
+        <ion-icon name="image"></ion-icon>
+          Imagenes app
+          </button>
         <button ion-button icon-start large clear color="nav" (click)="openPage(AdminSucursalesPage)">
                 <ion-icon name="map"></ion-icon>
           Sucursales
@@ -35,39 +41,25 @@
                 <ion-icon name="football"></ion-icon>
          Categorias
         </button>
-
         <button ion-button icon-start large clear color="nav" (click)="openPage(AdminEntrenadoresPage)">
                 <ion-icon name="person"></ion-icon>
         Cursos
         </button>
-
-<!-- Submenu para alumnos-->
-
         <ion-list id="sidenav">
-            <!-- other menu items will go here -->
             <button ion-button icon-start large clear color="nav" (click)="menuItemHandler1()" >
                 <ion-icon name="shirt"></ion-icon>
                 Alumnos
             </button>
-
               <ion-item submenu-item icon-start clear  *ngIf="showSubmenu1" (click)="openPage(AdminAlumnoPage)">
                 <ion-icon name="card"></ion-icon>
                 Inscripciones
               </ion-item>
-
               <ion-item submenu-item icon-start clear  *ngIf="showSubmenu1" (click)="openPage(AdminConsultasAlumnosPage)">
                 <ion-icon name="clipboard"></ion-icon>
                 Consultas
               </ion-item>
-             
-            <!-- other menu items will go here -->
             </ion-list>
-
-<!-- Submenu para Mensualidades-->
-
         <ion-list id="sidenav">
-            <!-- other menu items will go here -->
-       
               <button ion-button icon-start large clear color="nav" (click)="menuItemHandler()">
                 <ion-icon name="card"></ion-icon>
                 Mensualidades
@@ -76,23 +68,15 @@
                 <ion-icon name="card"></ion-icon>
                 Pagos
               </ion-item>
-
               <ion-item submenu-item icon-start clear  *ngIf="showSubmenu" (click)="openPage(ConsultasAdminPage)">
                 <ion-icon name="clipboard"></ion-icon>
                 Consultas
               </ion-item>
-             
-            <!-- other menu items will go here -->
-            </ion-list>
-
-
+        </ion-list>
         <button ion-button icon-start large clear color="nav" (click)="cerra_sesion()">
                 <ion-icon name="exit"></ion-icon>
           Cerrar Sesión
         </button>
-
-
     </ion-content>
 </ion-menu>
-
 <ion-nav id="nav " #content [root]="rootPage "></ion-nav>

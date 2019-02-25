@@ -1,8 +1,9 @@
+import { URL_SERVICIOS } from './../../app/config/url_servicios';
 import { Http, URLSearchParams } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { ToastController, AlertController, LoadingController } from 'ionic-angular';
-import { URL_SERVICIOS } from '../../app/config/url_servicios';
+
  
 
 @Injectable()
@@ -223,7 +224,58 @@ export class InformacionAcademiaProvider {
     return promesa;
 
   }
-  
+
+  eliminar_aimagenes_app(idimagenes_app:any)
+        {
+          let data= new URLSearchParams();
+          data.append("idimagenes_app",idimagenes_app);
+          let url=URL_SERVICIOS+"/Noticias/borrarimagenapp";
+          this.http.post(url,data)
+          .subscribe(resp=>{
+            console.log(resp.json);
+            this.mostar_alerta("Datos enviados","Estamos procesando sus datos");
+          });
+        }
+
+    subir_imagenes_app(file:any){
+      let data= new URLSearchParams();
+          data.append("file",file);
+          let url=URL_SERVICIOS+"/Noticias/appmg";
+          this.http.post(url,data)
+          .subscribe(resp=>{
+            console.log(resp.json);
+            this.mostar_alerta("Datos enviados","Estamos procesando sus datos");
+          });
+    }
+
+    subir_imagenes_noticias(file:any,fecha:any,titulo:any,descripcion:any){
+      let data= new URLSearchParams();
+          data.append("file",file);
+          data.append("fecha",fecha);
+          data.append("titulo",titulo);
+          data.append("descripcion",descripcion);
+          let url=URL_SERVICIOS+"/Noticias/NoticiasImg";
+          this.http.post(url,data)
+          .subscribe(resp=>{
+            console.log(resp.json);
+            this.mostar_alerta("Datos enviados","Estamos procesando sus datos");
+          });
+    }
+
+    subir_imagenes_depositos(file:any,fecha:any,ficha_alumno_idficha_alumno:any,descripcion:any){
+      let data= new URLSearchParams();
+          data.append("file",file);
+          data.append("fecha",fecha);
+          data.append("ficha_alumno_idficha_alumno",ficha_alumno_idficha_alumno);
+          data.append("descripcion",descripcion);
+          let url=URL_SERVICIOS+"/Pagos/pagoImg";
+          this.http.post(url,data)
+          .subscribe(resp=>{
+            console.log(resp.json);
+            this.mostar_alerta("Datos enviados","Estamos procesando sus datos");
+          });
+    }
+
   
   presentToast(mensaje:string) {
     let toast = this.toastCtrl.create({

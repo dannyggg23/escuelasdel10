@@ -6,6 +6,7 @@ import { InformacionHorariosPage } from '../informacion-horarios/informacion-hor
 import { NoticiasInicioPage } from '../noticias-inicio/noticias-inicio';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { InformacionEntrenadoresPage } from '../informacion-entrenadores/informacion-entrenadores';
+import { InformacionAcademiaPage } from '../../informacion-academia/informacion-academia';
 
 
 @Component({
@@ -19,6 +20,7 @@ tab1:any;
 tab3:any;
 tab4:any;
 tab5:any;
+tab6:any;
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,private alertCtrl:AlertController,
@@ -28,6 +30,7 @@ tab5:any;
   this.tab3=InformacionHorariosPage;
   this.tab4=NoticiasInicioPage;
   this.tab5=InformacionEntrenadoresPage;
+  this.tab6=InformacionAcademiaPage;
   
   }
 

@@ -22,6 +22,8 @@ import { FileTransfer } from '@ionic-native/file-transfer';
 import { DocumentViewer } from '@ionic-native/document-viewer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
+
+
 //admin
 import { 
   AdminSucursalesPage,
@@ -122,6 +124,8 @@ import { EntrenadorestabProvider } from '../providers/entrenadorestab/entrenador
 import { RepresentantestabsProvider } from '../providers/representantestabs/representantestabs';
 import { InformacionAcademiaProvider } from '../providers/informacion-academia/informacion-academia';
 import { ConsultasAdminProvider } from '../providers/consultas-admin/consultas-admin';
+import { AcordionComponent } from '../components/acordion/acordion';
+import { InformacionAcademiaPage } from '../pages/informacion-academia/informacion-academia';
 
 
 
@@ -188,7 +192,9 @@ import { ConsultasAdminProvider } from '../providers/consultas-admin/consultas-a
     SubirimagenesRepresentantesPage,
     InformacionEntrenadoresPage,
     AdminConsultasAlumnosPage,
-    TabsAdminConsultaAlumnosPage
+    TabsAdminConsultaAlumnosPage,
+    AcordionComponent,
+    InformacionAcademiaPage
 
   ],
   imports: [
@@ -258,7 +264,8 @@ import { ConsultasAdminProvider } from '../providers/consultas-admin/consultas-a
     SubirimagenesRepresentantesPage,
     InformacionEntrenadoresPage,
     AdminConsultasAlumnosPage,
-    TabsAdminConsultaAlumnosPage
+    TabsAdminConsultaAlumnosPage,
+    InformacionAcademiaPage
   ],
   providers: [
     StatusBar,

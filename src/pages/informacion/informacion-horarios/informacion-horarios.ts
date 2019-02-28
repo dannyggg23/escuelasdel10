@@ -9,14 +9,21 @@ import { InformacionAcademiaProvider } from '../../../providers/informacion-acad
 })
 export class InformacionHorariosPage {
 
+  pushPage:any="MapaCategoriasPage";
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private p_infromacion:InformacionAcademiaProvider) {
   }
 
   ionViewDidLoad() {
-   this.p_infromacion.SucCatHor();
-   
+ 
+  }
+
+  getItems(ev:any){
+    const val = ev.target.value;
+    console.log(val);
+    this.p_infromacion.BuscarSubcategorias(val);
   
   }
 

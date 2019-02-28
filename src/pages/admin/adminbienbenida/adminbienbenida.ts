@@ -1,10 +1,11 @@
+
 import { AdminConsultasAlumnosPage } from './../admin-consultas-alumnos/admin-consultas-alumnos';
 
 import { AdminAlumnoPage } from './../admin-alumno/admin-alumno';
 import { AdminEntrenadoresPage } from './../admin-entrenadores/admin-entrenadores';
 import { AdminCategoriasPage } from './../admin-categorias/admin-categorias';
 import { Component } from '@angular/core';
-import { NavController, NavParams, MenuController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, MenuController, AlertController, Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 import { InicioadminPage } from '../inicioadmin/inicioadmin';
@@ -51,39 +52,27 @@ export class AdminbienbenidaPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     private alertCtrl :AlertController,
-    private menuCtrl:MenuController) 
+    private menuCtrl:MenuController,
+    private platform:Platform) 
     
     {
+
+
     this.storage.get('usuario').then((val)=>{
       this.item=val;
       this.nombreUsuario=val.nombre_usuario;
       this.imagenUsuario=this.imagenUsuario+val.imagen_usuario;
       this.email_usuario=val.email_usuario;
       this.celular_usuario=val.celular_usuario;
-     // this.imagenUsuario=this.imagenUsuario+val.imagen_usuario;
-     // console.log("usuario :"+this.nombreUsuario);
-     // console.log("imagen :"+this.imagenUsuario);
       });
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
+    document.addEventListener("backbutton",function(e) {
+      console.log("disable back button")
+    }, false);
+}
 
-  //  this.params=this.navParams.get('item');
-  //  if(this.params==1)
-  //  {
-  //   this.openPage(AdminMensualidadesPage);
-  //  }else if(this.params==2)
-  //  {
-  //   this.openPage(AdminAlumnoPage);
-  //  }
-  //  else if(this.params==3){
-  //   this.openPage(NotificacionesAdminPage)
-  //  }
-  //  else if(this.params==4){
-  //   this.openPage(ConsultasAdminPage)
-  //  }
-   
-   }
   
   openPage(page){
   
@@ -125,4 +114,6 @@ export class AdminbienbenidaPage {
   menuItemHandler1(): void {
     this.showSubmenu1 = !this.showSubmenu1;
   }
+
+
 }

@@ -48,9 +48,7 @@ export class HomePage {
     this.modalCtrl.create(InformacionTabsPage).present();
   }
 
-  mostrar_modal_academia(){
-    this.modalCtrl.create("TabsacademiaPage").present();
-  }
+
 
   launchExternalApp(iosSchemaName: string, androidPackageName: string, appUrl: string, httpUrl: string, username: string) {
     let app: string;

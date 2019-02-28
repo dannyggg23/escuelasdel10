@@ -38,6 +38,12 @@ export class InicioadminPage {
     });
   }
 
+  ionViewDidEnter() {
+    document.addEventListener("backbutton",function(e) {
+      console.log("disable back button")
+    }, false);
+}
+
   open_menu(){
     this.menuCtrl.open();
    

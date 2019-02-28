@@ -1,0 +1,31 @@
+
+<ion-header >
+
+  <ion-navbar color="nav">
+    <ion-title>informacion-academia</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <acordion [title]="'Mision y Vision'"></acordion>
+  <acordion [title]="'Objetivos'"></acordion>
+  <acordion [title]="'Convenios'">
+    <ion-list *ngFor="let item of p_informacion.convenios; let i =index" >
+      <h1>{{item.nombre}}</h1>
+      <img [src]="urlimg+item.imagen" alt="">
+      <p>{{item.descripcion}}</p>
+    </ion-list>
+  </acordion>
+  <acordion [title]="'Certificaciones'">
+      <ion-list *ngFor="let item of p_informacion.certificaciones; let i =index" >
+          <h1 text-center>{{item.nombre}}</h1>
+          <img [src]="urlimg+item.imagen" alt="">
+          <p>{{item.descripcion}}</p>
+        </ion-list>
+
+  </acordion>
+
+</ion-content>

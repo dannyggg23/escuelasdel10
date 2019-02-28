@@ -16,6 +16,15 @@ export class InformacionAcademiaProvider {
   imagenes_app:any[]=[];
   entrenadores:any[]=[];
   SucCatHora:any[]=[];
+  /////////////////////////
+
+  convenios:any[]=[];
+  certificaciones:any[]=[];
+
+  ////////////////////////
+  buscarSubs:any[]=[];
+  horariosSucurs:any[]=[];
+
 
   
   loadin:any;
@@ -274,6 +283,123 @@ export class InformacionAcademiaProvider {
             console.log(resp.json);
             this.mostar_alerta("Datos enviados","Estamos procesando sus datos");
           });
+    }
+
+    cargar_convenios(){
+      this.convenios=[];
+      this.loadin=this.loadingCtrl.create({
+        content: "Please wait..."
+      });
+      let promesa=new Promise( (resolve,reject)=>{
+        this.loadin.present();
+        let url=URL_SERVICIOS+"/Listar/listaConvenios/";
+        this.http.get(url)
+                  .map( resp => resp.json() )
+                  .subscribe( data=>{
+                    console.log(data);
+                    if(data.error)
+                    {
+                      this.presentToast("Error al obtener los datos");
+                    }
+                    else
+                    {
+                      this.presentToast("Datos cargados");
+                      this.convenios.push(...data.convenios);
+                      //this.pagina=this.pagina+1
+                    }
+                    resolve();
+                  })
+      });
+      this.loadin.dismiss();
+      return promesa;
+    }
+
+    cargar_certificaciones(){
+      this.certificaciones=[];
+      this.loadin=this.loadingCtrl.create({
+        content: "Please wait..."
+      });
+      let promesa=new Promise( (resolve,reject)=>{
+        this.loadin.present();
+        let url=URL_SERVICIOS+"/Listar/listaCertificaciones/";
+        this.http.get(url)
+                  .map( resp => resp.json() )
+                  .subscribe( data=>{
+                    console.log(data);
+                    if(data.error)
+                    {
+                      this.presentToast("Error al obtener los datos");
+                    }
+                    else
+                    {
+                      this.presentToast("Datos cargados");
+                      this.certificaciones.push(...data.certificaciones);
+                      //this.pagina=this.pagina+1
+                    }
+                    resolve();
+                  })
+      });
+      this.loadin.dismiss();
+      return promesa;
+    }
+
+    BuscarSubcategorias(sub:any){
+      this.buscarSubs=[];
+      this.loadin=this.loadingCtrl.create({
+        content: "Please wait..."
+      });
+      let promesa=new Promise( (resolve,reject)=>{
+        this.loadin.present();
+        let url=URL_SERVICIOS+"/Listar/listarSubCatego/"+sub;
+        this.http.get(url)
+                  .map( resp => resp.json() )
+                  .subscribe( data=>{
+                    console.log(data);
+                    if(data.error)
+                    {
+                      this.presentToast("Error al obtener los datos");
+                    }
+                    else
+                    {
+                      this.presentToast("Datos cargados");
+                      this.buscarSubs.push(...data.subcategorias);
+                      //this.pagina=this.pagina+1
+                    }
+                    resolve();
+                  })
+      });
+      this.loadin.dismiss();
+      return promesa;
+    }
+
+
+    listarHorarioCatego(sucursal:any){
+      this.horariosSucurs=[];
+      this.loadin=this.loadingCtrl.create({
+        content: "Please wait..."
+      });
+      let promesa=new Promise( (resolve,reject)=>{
+        this.loadin.present();
+        let url=URL_SERVICIOS+"/Listar/listarHorarioSucur/"+sucursal;
+        this.http.get(url)
+                  .map( resp => resp.json() )
+                  .subscribe( data=>{
+                    console.log(data);
+                    if(data.error)
+                    {
+                      this.presentToast("Error al obtener los datos");
+                    }
+                    else
+                    {
+                      this.presentToast("Datos cargados");
+                      this.horariosSucurs.push(...data.horarios);
+                      //this.pagina=this.pagina+1
+                    }
+                    resolve();
+                  })
+      });
+      this.loadin.dismiss();
+      return promesa;
     }
 
   
